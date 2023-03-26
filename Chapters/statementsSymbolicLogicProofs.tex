@@ -1,0 +1,1080 @@
+\section{Lecture 1: May 31, 2022}
+
+    \subsection{Introduction to Discrete Mathematics}
+    
+        The word ``discrete'' means ``individually separate and distinct.'' Discrete Mathematics relates to mathematics pertaining to discrete, or individually separate and distinct, quantities. Informally, mathematics may be divided into ``Continuous Mathematics'' and ''Discrete Mathematics.'' Among other things, Continuous Mathematics consists of Algebra, Trigonometry, Calculus, and Differential Equations. Discrete Mathematics includes Combinatorics, Set Theory, Number Theory, and Graph Theory.
+        
+    \subsection{Mathematical Statements}
+    
+        Logic is the study of statements and the derivation of novel statements from existing statements. In symbolic logic, we will often assign letters to represent statements. Before we delve too much into statements, we must first define what a statement actually is. Consider the following definition.
+        
+        \begin{definition}{\Stop\,\,Statements}{statements}
+        
+            A statement is any declarative sentence which is able to be either true or false. A statement is \textit{atomic} if it cannot be divided into smaller statements, otherwise, it is called \textit{molecular}.
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        We often use statements to create arguments. Consider the following definition.
+        \begin{definition}{\Stop\,\,Arguments}{arguments}
+        
+            An argument is a set of statements, one of which is called the \textit{conclusion} and the rest of which are called \textit{premises}. An argument is said to be \textit{valid} if the conclusion must be true whenever the premises are all true and \textit{invalid} if it is possible for all the premises to be true and the conclusion to be false.
+        
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Logical operators may be used to create molecular statements out of atomic statements. Consider the following.
+        \begin{itemize}
+            \item CONJUNCTION -- \texttt{"\(P\) and \(Q\)"} -- \(\wedge\)
+                \begin{itemize}
+                    \item \(P\wedge Q\) is true if and only if both \(P\) and \(Q\) are true.
+                    \\
+                    \begin{center}
+                    \begin{tabular}{c|c|c}
+                        \hline
+                        \(P\) & \(Q\) & \(P\wedge Q\) \\
+                        \hline
+                        T & T & T \\
+                        T & F & F \\
+                        F & T & F \\
+                        F & F & F \\
+                        \hline
+                    \end{tabular}
+                    \end{center}
+                    \vphantom
+                    \\
+                \end{itemize}
+            \item DISJUNCTION -- \texttt{"\(P\) or \(Q\)"} -- \(\vee\)
+                \begin{itemize}
+                    \item \(P\vee Q\) is true if and only if either \(P\) and \(Q\) both true, \(P\) is true, or \(Q\) is true.
+                    \\
+                    \begin{center}
+                    \begin{tabular}{c|c|c}
+                        \hline
+                        \(P\) & \(Q\) & \(P\vee Q\) \\
+                        \hline
+                        T & T & T \\
+                        T & F & T \\
+                        F & T & T \\
+                        F & F & F \\
+                        \hline
+                    \end{tabular}
+                    \end{center}
+                    \vphantom
+                    \\
+                \end{itemize}
+            \item IMPLICATION -- \texttt{"if \(P\) then \(Q\)"} -- \(\implies\)
+                \begin{itemize}
+                    \item \(P\implies Q\) is true if either \(P\) is false, \(Q\) is true, or \(P\) is false and \(Q\) is true.
+                    \\
+                    \begin{center}
+                    \begin{tabular}{c|c|c}
+                        \hline
+                        \(P\) & \(Q\) & \(P\implies Q\) \\
+                        \hline
+                        T & T & T \\
+                        T & F & F \\
+                        F & T & T \\
+                        F & F & T \\
+                        \hline
+                    \end{tabular}
+                    \end{center}
+                    \vphantom
+                    \\
+                \end{itemize}
+            \item BICONDITIONAL -- \texttt{"\(P\) if and only if \(Q\)"} -- \(\iff\)
+                \begin{itemize}
+                    \item \(P\iff Q\) is true if \(P\) and \(Q\) are either both true or both false.
+                    \\
+                    \begin{center}
+                    \begin{tabular}{c|c|c}
+                        \hline
+                        \(P\) & \(Q\) & \(P\iff Q\) \\
+                        \hline
+                        T & T & T \\
+                        T & F & F \\
+                        F & T & F \\
+                        F & F & T \\
+                        \hline
+                    \end{tabular}
+                    \end{center}
+                    \vphantom
+                    \\
+                \end{itemize}
+            \pagebreak
+            \item NEGATION -- \texttt{"not \(P\)"} -- \(\neg\)
+                \begin{itemize}
+                    \item \(\neg P\) is true when \(P\) is false.
+                    \\
+                    \begin{center}
+                    \begin{tabular}{c|c}
+                        \hline
+                        \(P\) & \(\neg P\) \\
+                        \hline
+                        T & F \\
+                        F & T \\
+                        \hline
+                    \end{tabular}
+                    \end{center}
+                    \vphantom
+                    \\
+                \end{itemize}
+        \end{itemize}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\Difficulty\,\,Truth Table 1}{truth1}
+        
+            Compute the truth table for
+            \begin{equation*}
+                \neg P\implies (P\vee Q).
+            \end{equation*}
+            We proceed by computing the truth table sequentially.
+            First, we compute \(\neg P\), which produces
+            \begin{center}
+                \begin{tabular}{c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \(\neg P\) \\
+                    \hline
+                    T & T & F \\
+                    T & F & F \\
+                    F & T & T \\
+                    F & F & T \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Then, we find \(P \vee Q\), which yields
+            \begin{center}
+                \begin{tabular}{c|c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \(\neg P\) & \(P\vee Q\) \\
+                    \hline
+                    T & T & F & T \\
+                    T & F & F & T \\
+                    F & T & T & T \\
+                    F & F & T & F \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            We finally perform an implication with \(\neg P\) as the precondition and \(P\vee Q\) as the postcondition. This produces
+            \begin{center}
+                \begin{tabular}{c|c|c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \(\neg P\) & \(P\vee Q\) & \(\neg P\implies (P\vee Q)\) \\
+                    \hline
+                    T & T & F & T & T \\
+                    T & F & F & T & T \\
+                    F & T & T & T & T \\
+                    F & F & T & F & F \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We now define the principle of logical equivalence.
+        \begin{definition}{\Stop\,\,Logical Equivalence}{logequiv}
+            Two molecular statements \(P\) and \(Q\) are logically equivalent provided \(P\) is true precisely when \(Q\) is true. To verify that two statements are logically equivalent, the truth tables for each statement must be identical. We may use the principle of logical equivalence to gain insight into statements' meanings, or how to prove or refute them.
+        \end{definition}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\Difficulty\,\,Truth Table 2}{truth2}
+        
+            Verify that \(\neg P \implies Q\) is logically equivalent to \(\neg P \implies (P\vee Q)\). That is, verify
+            \begin{equation*}
+                (\neg P \implies Q)\iff((\neg P)\implies (P\vee Q)).
+            \end{equation*}
+            Recall that \(\neg P\implies (P\vee Q)\) produces a truth table of
+            \begin{center}
+                \begin{tabular}{c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \(\neg P\implies (P\vee Q)\) \\
+                    \hline
+                    T & T & T \\
+                    T & F & T \\
+                    F & T & T \\
+                    F & F & F \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            We then find the truth table for \(\neg P\implies Q\), producing
+            \begin{center}
+                \begin{tabular}{c|c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \(\neg P\) & \(\neg P \implies Q\) \\
+                    \hline
+                    T & T & F & T\\
+                    T & F & F & T \\
+                    F & T & T & T \\
+                    F & F & T & F \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            As the truth tables match, the statements are logically equivalent. That is,
+            \begin{center}
+                \begin{tabular}{c|c|c}
+                    \hline
+                    \(P\) & \(Q\) & \((\neg P \implies Q)\iff(\neg P\implies (P\vee Q))\) \\
+                    \hline
+                    T & T & T \\
+                    T & F & T \\
+                    F & T & T \\
+                    F & F & T \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+        
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        When given an implication, we can construct three related statements. Consider the following definitions.
+        \begin{definition}{\Stop\,\,Inverse of a Statement}{inverse}
+        
+            Given the implication \(P \implies Q\), we may construct the statement
+            \begin{equation*}
+                \neg P \implies \neg Q,
+            \end{equation*}
+            which is the associated inverse. The implication is not equivalent to its inverse.
+        
+        \end{definition}
+        \begin{definition}{\Stop\,\,Contrapositive of a Statement}{contrapositive}
+        
+            Given the implication \(P \implies Q\), we may construct the statement
+            \begin{equation*}
+                \neg Q \implies \neg P,
+            \end{equation*}
+            which is the associated contrapositive. The implication is logically equivalent to its contrapositive.
+        
+        \end{definition}
+        \begin{definition}{\Stop\,\,Converse of a Statement}{converse}
+        
+            Given the implication \(P \implies Q\), we may construct the statement
+            \begin{equation*}
+                Q \implies P,
+            \end{equation*}
+            which is the associated converse. The implication is not equivalent to its converse.
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        De Morgan's Laws are another useful application of logical equivalence. Consider the following.
+        \begin{theorem}{\Stop\,\,De Morgan's Laws}{demorgan}
+        
+            Given two statements \(P\) and \(Q\),
+            \begin{equation*}
+                \neg(P\wedge Q)\iff(\neg P \vee \neg Q)
+            \end{equation*}
+            and 
+            \begin{equation*}
+                \neg(P\vee Q)\iff(\neg P \wedge \neg Q).
+            \end{equation*}
+        
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        We also state another useful theorem.
+        \begin{theorem}{\Stop\,\,Implications are Disjunctions}{impdis}
+        
+            Given two statements \(P\) and \(Q\),
+            \begin{equation*}
+                (P\implies Q)\iff(\neg P \vee Q).
+            \end{equation*}
+        
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        With the aid of the above theorems, one may take any statement and simplify it such that negations are only applied to atomic statements, understanding that for any statement, \(P\), \(\neg\neg P\iff P\).
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Logical Equivalence Without Truth Tables}{logequivnotruth}
+        
+            Show that for two statements \(P\) and \(Q\),
+            \begin{equation*}
+                \neg(P\implies Q)\iff(P\wedge\neg Q)
+            \end{equation*}
+            without using truth tables.
+            \begin{proof}
+            We consider the first statement, \(\neg(P\implies Q)\), and see that
+            \begin{align*}
+                \neg(P\implies Q)&\iff\neg(\neg P\vee Q) \\
+                &\iff(P \wedge \neg Q),
+            \end{align*}
+            which is precisely the same as the second given statement.
+            \end{proof}
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        Just as implications were disjunctions, the negation of an implication is a conjunction. Consider the following theorem.
+        \begin{theorem}{\Stop\,\,The Negation of an Implication is a Conjunction}{negimpcon}
+        
+            Given two statements \(P\) and \(Q\),
+            \begin{equation*}
+                \neg(P\implies Q)\iff(P\wedge\neg Q).
+            \end{equation*}
+        
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        To verify that two statements are logically equivalent, truth tables or a transitive chain of logically equivalent statements may be used; however, truth tables can further verify that two statements are \textit{not} logically equivalent. Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Simplification 1}{simp1}
+        
+            Simplify \(\neg(P\implies\neg Q)\) such that negation is only applied to \(P\) or \(Q\).
+            \\
+            \\
+            We proceed by understanding that implications are disjunctions, producing
+            \begin{align*}
+                \neg(P\implies\neg Q)&\iff\neg(\neg P \vee \neg Q) \\
+                &\iff P\wedge Q.
+            \end{align*}
+        
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Simplification 2}{simp2}
+        
+            Simplify \((\neg P\vee\neg Q)\implies\neg(\neg Q\wedge R)\) such that negation is only applied to \(P\), \(Q\), or \(R\).
+            \\
+            \\
+            We proceed by applying De Morgan's Laws, producing
+            \begin{align*}
+                ((\neg P\vee\neg Q)\implies\neg(\neg Q\wedge R))&\iff((\neg P\vee\neg Q)\implies(Q\vee \neg R)).
+            \end{align*}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Simplification 3}{simp3}
+        
+            Simplify \(\neg((\neg P \wedge Q)\vee \neg(R\vee \neg S))\) such that negation is only applied to \(P\), \(Q\), \(R\), or \(S\).
+            \\
+            \\
+            We proceed by applying De Morgan's Laws, producing
+            \begin{align*}
+                \neg((\neg P \wedge Q)\vee \neg(R\vee \neg S))&\iff\neg((\neg P \wedge Q)\vee (\neg R\wedge S)) \\
+                &\iff\neg(\neg P \wedge Q)\wedge \neg(\neg R\wedge S) \\
+                &\iff(P \vee \neg Q)\wedge (R\vee \neg S).
+            \end{align*}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Simplification 4}{simp4}
+        
+            Simplify \(\neg((\neg P\implies\neg Q)\wedge (\neg Q\implies R))\) such that negation is only applied to \(P\), \(Q\), or \(R\).
+            \\
+            \\
+            We proceed by applying De Morgan's Laws, as well as rewriting a statement into its equivalent contrapositive, producing
+            \begin{align*}
+                \neg((\neg P\implies\neg Q)\wedge (\neg Q\implies R))&\iff\neg((Q\implies P)\wedge (\neg Q\implies R)) \\
+                &\iff\neg((\neg Q\vee P)\wedge ( Q\vee R)) \\
+                &\iff\neg(\neg Q\vee P)\vee \neg(Q\vee R) \\
+                &\iff(Q\wedge \neg P)\vee (\neg Q\wedge \neg R).
+            \end{align*}
+        
+        \end{exercise}
+    
+    \pagebreak
+    
+    
+    
+\section{Lecture 2: June 2, 2022}
+
+    \subsection{Rules of Inference}
+    
+        Rules of Inference are constructed in the following manner.
+        \begin{center}
+            \begin{tabular}{c}
+                \hline
+                PREMISE 1 \\
+                PREMISE 2 \\
+                \vdots \\
+                PREMISE \(n\) \\
+                \hline
+                \(\thus\) CONCLUSION \\
+                \hline 
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\,The Contrapositive as a Rule of Inference}{contraprule}
+        
+            Write the Contrapositive as a Rule of Inference.
+            \begin{center}
+                \begin{tabular}{c}
+                    \hline
+                    \(P \implies Q\) \\
+                    \hline
+                    \(\thus \neg Q\implies \neg P\) \\
+                    \hline 
+                \end{tabular}.
+            \end{center}
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        To determine the validity of a Rule of Inference, one may build the Rule of Inference as a statement in the form
+        \begin{equation*}
+            (\text{PREMISE 1} \wedge \text{PREMISE 2} \wedge \cdots \wedge \text{PREMISE } n) \implies \text{CONCLUSION.}
+        \end{equation*}
+        Then, one may build a truth table. If the truth table yields a tautology, the Rule of Inference is valid. Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\,Determine the Validity of a Rule of Inference 1}{detrule1}
+        
+            Determine the validity of
+            \begin{center}
+                \begin{tabular}{c}
+                    \hline
+                    \(\neg(P\vee Q)\) \\
+                    \hline
+                    \(\thus\) \(\neg P \vee \neg Q\) \\
+                    \hline 
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            We may rewrite \(\neg(P\vee Q)\) as \(\neg P \wedge \neg Q\).
+            \begin{center}
+                \begin{tabular}{c|c|c|c|c}
+                \hline
+                    \(P\) & \(Q\) & \(\neg P \wedge \neg Q\) & \(\neg P \vee \neg Q\) & \((\neg P \wedge \neg Q) \implies (\neg P \vee \neg Q)\)\\
+                    \hline
+                    T & T & F & F & T \\
+                    T & F & F & T & T \\
+                    F & T & F & T & T \\
+                    F & F & T & T & T \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Therefore, the Rule of Inference is valid.
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\,Determine the Validity of a Rule of Inference 2}{detrule2}
+        
+            Determine the validity of
+            \begin{center}
+            \begin{tabular}{c}
+                \hline
+                \(P\implies Q\) \\
+                \(P\implies \neg Q\) \\
+                \hline
+                \(\thus\) \(\neg P\) \\
+                \hline 
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        We consider the truth table
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+            \hline
+                \(P\) & \(Q\) & \(P\implies Q\) & \(P\implies \neg Q\) & \((P\implies Q) \wedge (P \implies \neg Q)\) \\
+                \hline
+                T & T & T & F & F \\
+                T & F & F & T & F \\
+                F & T & T & T & T \\
+                F & F & T & T & T \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Then, we consider
+        \begin{center}
+            \begin{tabular}{c|c|c}
+                \hline
+                \(P\) & \(Q\) & \(((P\implies Q) \wedge (P \implies \neg Q))\implies \neg P\) \\
+                \hline
+                T & T & T \\
+                T & F & T \\
+                F & T & T \\
+                F & F & T \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        Therefore, the Rule of Inference is valid.
+        \end{exercise}
+
+    \subsection{Predicates and Quantifiers}
+    
+        In mathematics, we use two main quantifiers: the existential and universal quantifiers. Consider the following definition.
+        \begin{definition}{\Stop\,\,Universal and Existential Quantifiers}{uniexisquan}
+        
+            The existential quantifier, \(\exists\), is read ``there exists,'' or ``there is.'' The universal quantifier, \(\forall\), is read ``for all.''
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Recall the Intermediate Value Theorem from Calculus, stating that 
+        \begin{quote}
+            Given a continuous function \(f(x)\) on a closed interval \([a,b]\). If \(K\) is some real number between \(f(a)\) and \(f(b)\), there exists some \(c\) between \(a\) and \(b\) such that \(f(c)=K\).
+        \end{quote}
+        We may rewrite the Intermediate Value Theorem, using quantifiers, as
+        \begin{quote}
+            Given a continuous function \(f(x)\) on a closed interval \([a,b]\),
+            \begin{equation*}
+                \forall K\in[f(a),f(b)],\exists c\in[a,b],f(c)=K.
+            \end{equation*}
+        \end{quote}
+        \pagebreak
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Quantifiers and Validity}{rewritequant}
+        
+            Let \(S\) be the set of all people. Determine the validity of the following statements.
+            \begin{itemize}
+                \item \(\forall x \in S,\exists y\in S\), \(x\) is the mother of \(y\).
+                    \begin{itemize}
+                        \item This is untrue. Not all people are mothers.
+                    \end{itemize}
+                \item \(\exists x \in S,\forall y\in S\), \(x\) is the mother of \(y\).
+                    \begin{itemize}
+                        \item This is untrue. There does not exist some person that is the mother to everyone.
+                    \end{itemize}
+                \item \(\exists y \in S, \forall x\in S\), \(x\) is the mother of \(y\).
+                    \begin{itemize}
+                        \item This is untrue. There does not exist some person who is the child of everyone, including themself.
+                    \end{itemize}
+            \end{itemize}
+            \vphantom
+            \\
+            \\
+            The correct statement is \(\forall y\in S,\exists x\in S\), \(x\) is the mother of \(y\).
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        Quantifiers may be negated; consider the following theorem relating negation to quantifiers.
+        \begin{theorem}{\Stop\,\,Quantifiers and Negation}{quanneg}
+        
+            For a predicate, or a sentence containing variables, \(P(x)\),
+            \begin{equation*}
+                \neg\forall xP(x)\iff\exists x\neg P(x)
+            \end{equation*}
+            and
+            \begin{equation*}
+                \neg\exists xP(x)\iff\forall x\neg P(x).
+            \end{equation*}
+            This relation can be thought of as a Corollary to De Morgan's Laws, stated in Theorem \ref{thm:demorgan}.
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,The \(N-\epsilon\) Definition of the Limit of a Sequence}{neseq}
+        
+            Recall the \(N-\epsilon\) definition of the limit of a sequence. That is, for a sequence \(a_n\) and a real number \(L\),
+            \begin{equation*}
+                \left(\lim_{n\to\infty}a_n=L\right)\iff(\forall \epsilon >0,\exists N,\forall n \in\mathbb{N},n>N\implies|a_n-L|<\epsilon).
+            \end{equation*}
+            Define \(\lim\limits_{n\to\infty}\neq L\).
+            \\
+            \\
+            We simply negate the above quantified statement. This produces
+            \begin{align*}
+                 \neg\left(\lim_{n\to\infty}a_n=L\right)&\iff\left(\lim_{n\to\infty}a_n\neq L\right) \\
+                 &\iff\neg(\forall \epsilon >0,\exists N,\forall n \in\mathbb{N},n>N\implies|a_n-L|<\epsilon) \\
+                 &\iff(\exists \epsilon >0,\forall N,\exists n \in\mathbb{N},\neg(n>N\implies|a_n-L|<\epsilon)) \\
+                 &\iff(\exists \epsilon >0,\forall N,\exists n \in\mathbb{N},(n>N\wedge|a_n-L|\geq\epsilon)).
+            \end{align*}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,A Proof With the Definition of the Limit of a Sequence}{neseqpf}
+        
+            Prove that for \(a_n=(-1)^n\),
+            \begin{equation*}
+                \lim_{n\to\infty}a_n\neq 0.
+            \end{equation*}
+            \begin{proof}
+            Recall that
+            \begin{equation*}
+                \left(\lim_{n\to\infty}a_n\neq L\right)\iff(\exists \epsilon >0,\forall N,\exists n \in\mathbb{N},(n>N\wedge|a_n-L|\geq\epsilon)).
+            \end{equation*}
+            Applying the above definition to the current exercise produces
+            \begin{equation*}
+                \left(\lim_{n\to\infty}a_n\neq 0\right)\iff(\exists \epsilon > 0,\forall N,\exists n \in\mathbb{N},(n>N\wedge|a_n|\geq\epsilon)).
+            \end{equation*}
+            As \(0<\frac{1}{2}<1\), we let \(\epsilon=\frac{1}{2}\). Let \(N\) be an arbitrarily large real number. Let \(n=\ceil{N}+1\). Therefore, \(n>N\), satisfying the first statement in the above conjunction. We also note that \(\forall n,|a_n|=1\). Therefore, \(|a_n|\geq\epsilon\). Both statements of the conjunction are satisfied.
+            \end{proof}
+        \end{exercise}
+        \pagebreak
+        
+\section{Lecture 3 \& Lecture 4: June 7, 2022 \& June 9, 2022}
+        
+    \subsection{Introduction to Proofs}
+    
+        Before we delve into techniques to write proofs, let us first define what a proof is. 
+        \begin{definition}{\Stop\,\,Proofs}{proofs}
+        
+            Mathematical proofs are logical arguments to show that stated premises guarantee that a mathematical statement must be true.
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        There are multiple techniques to write proofs, but here, we will explore the Proof by Induction, the Direct Proof, the Proof by Contrapositive, the Proof by Contradiction, and the Proof by Cases.
+        
+    \subsection{Proof by Induction}
+    
+        We will use quantifiers to state induction.
+        \\
+        \\
+        Let \(P(n)\) be a statement with \(n\in\mathbb{N}\). Consider the following Rule of Inference.
+        \begin{center}
+            \begin{tabular}{c}
+                \hline
+                \(P(0)\) \\
+                \(P(0) \implies P(1)\) \\
+                \(P(1) \implies P(2)\) \\
+                \(\vdots\) \\
+                \(P(n) \implies P(n+1)\) \\
+                \hline
+                \(\thus \forall n\in\mathbb{N}, P(n)\). \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        This may be further collapsed into
+        \begin{center}
+            \begin{tabular}{c}
+                \hline
+                \(P(0)\) \\
+                \(\forall k\in\mathbb{N}, P(k)\implies P(k+1)\) \\
+                \hline
+                \(\thus \forall n\in\mathbb{N}, P(n)\). \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Generally, in Proofs by Induction, we follow the following steps.
+        \begin{itemize}
+            \item Start with an iterative propostition that depends on some \(n\in\mathbb{N}\), or \(P(n)\).
+            \item Prove that the proposition is true for some base case \(n=n_0\). That is, show that the proposition is true for the smallest fixed number that the proposition makes sense for.
+            \item Prove the inductive step. Suppose that the proposition holds true for \(n=k\), and then prove that the proposition holds for \(n=k+1\). Essentially, suppose \(P(k)\) is true, and prove that \(P(k+1)\) is true.
+            \item Then, the proposition is proved \(\forall n\in\mathbb{N}\), where \(n \geq n_0\).
+        \end{itemize}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following examples and exercises.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Gauss' Formula}{gaussformula}
+        
+            Prove that the sum of consecutive integers starting at \(1\) can be found by Gauss' formula. That is,
+            \begin{equation*}
+                1+2+3\cdots+n=\frac{n(n+1)}{2}.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=1\). Then the left hand side is \(1\), and the right hand side is
+                \begin{equation*}
+                    \frac{1(1+1)}{2}=1.
+                \end{equation*}
+                Therefore, the left hand side is equal to the right hand side, proving the case base.
+                \\
+                \\
+                We suppose that the relationship is true for \(n=k\) where \(k\in\mathbb{N}\). That is, we suppose that
+                \begin{equation*}
+                    1+2+3+\cdots+k=\frac{k(k+1)}{2}.
+                \end{equation*}
+                If we add \(k+1\) to both sides, we obtain
+                \begin{align*}
+                    1+2+3+\cdots+k+k+1&=\frac{k(k+1)}{2}+k+1 \\
+                    &=\frac{k(k+1)+2k+2}{2} \\
+                    &=\frac{k^2+3k+2}{2} \\
+                    &=\frac{(k+2)(k+1)}{2} \\
+                    &=\frac{(k+1)((k+1)+1)}{2}.
+                \end{align*}
+                This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, Gauss' formula is true for all \(n\in\mathbb{N}\) where \(n \geq 1\).
+            \end{proof}
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Sum of Consequtive Squares}{sumconseqsqs}
+        
+            Prove that for all \(n\in\mathbb{N}, n \geq 1\),
+            \begin{equation*}
+                1^2+2^2+3^2\cdots+n^2=\frac{n(n+1)(2n+1)}{6}.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=1\). Then the left hand side is \(1\), and the right hand side is
+                \begin{equation*}
+                    \frac{1(1+1)(2+1)}{6}=1.
+                \end{equation*}
+                Therefore, the left hand side is equal to the right hand side, proving the base case.
+                \\
+                \\
+                We suppose that the relationship is true for \(n=k\) where \(k\in\mathbb{N}\). That is, we suppose that
+                \begin{equation*}
+                    1^2+2^2+3^2\cdots+k^2=\frac{k(k+1)(2k+1)}{6}.
+                \end{equation*}
+                If we add \(k+1\) to both sides, we obtain
+                \begin{align*}
+                    1^2+2^2+3^2\cdots+k^2+(k+1)^2&=\frac{k(k+1)(2k+1)}{6}+(k+1)^2 \\
+                    &=\frac{k(k+1)(2k+1)}{6}+k^2+2k+1 \\
+                    &=\frac{k(k+1)(2k+1)+6k^2+12k+6}{6} \\
+                    &=\frac{2k^3+9k^2+13k+6}{6} \\
+                    &=\frac{(k+1)(k+2)(2k+3)}{6} \\
+                    &=\frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}.
+                \end{align*}
+                This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, the above formula is true for all \(n\in\mathbb{N}\) where \(n \geq 1\).
+            \end{proof}
+        
+        \end{example}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,The Power Rule for Derivatives}{powerrule}
+        
+            Prove that for all \(n\in\mathbb{N}, n \geq 0\),
+            \begin{equation*}
+                \frac{\dd}{\dd x}x^n=nx^{n-1}.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=0\). Then the left hand side is \(0\), as the derivative of any constant is zero, and the right hand side is
+                \begin{equation*}
+                    0x^{0-1}=0.
+                \end{equation*}
+                Therefore, the left hand side is equal to the right hand side, proving the base case.
+                \\
+                \\
+                We suppose that the relationship is true for \(n=k\) where \(k\in\mathbb{N}\). That is, we suppose that
+                \begin{equation*}
+                    \frac{\dd}{\dd x}x^k=kx^{k-1}.
+                \end{equation*}
+                Consider \(\frac{\dd}{\dd x}[x^{k+1}]\), or \(\frac{\dd}{\dd x}[xx^{k}]\). Then we have
+                \begin{align*}
+                   \frac{\dd}{\dd x}[x^{k+1}]&=\frac{\dd}{\dd x}[xx^k] \\
+                    &=x^k+x(kx^{k-1}) \\
+                    &=x^k+kx^k \\
+                    &=(k+1)x^k.
+                \end{align*}
+                This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, the power rule for derivatives is true for all \(n\in\mathbb{N}\) where \(n \geq 0\).
+            \end{proof}
+        
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,\(n\)th Derivative}{nthderiv}
+        
+            Prove that the \(n\)th Derivative of \(f(x)=\frac{1}{x}\) is
+            \begin{equation*}
+                f^{(n)}(x)=\frac{(-1)^nn!}{x^{n+1}}.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=0\). The zeroth derivative of \(f(x)\) is \(f(x)\) itself. Using the formula, we have
+                \begin{align*}
+                    f^{(0)}(x)&=\frac{(-1)^00!}{x^{0+1}} \\
+                    &=\frac{1}{x} \\
+                    &=f(x).
+                \end{align*}
+                Therefore, the base case is true. We suppose that the relationship is true for \(n=k\) where \(k\in\mathbb{N}\). That is, we suppose that
+                \begin{equation*}
+                    f^{(k)}(x)=\frac{(-1)^kk!}{x^{k+1}}.
+                \end{equation*}
+                To find the \((k+1)\)th derivative, we differentiate \(f^{(k)}\), producing
+                \begin{align*}
+                    f^{(k+1)}(x)&=\frac{\dd}{\dd x}\frac{(-1)^kk!}{x^{k+1}} \\
+                    &=\frac{(-1)^kk!}{x^{k+1+1}}(-(k+1)) \\
+                    &=\frac{(-1)^{(k+1)}(k+1)!}{x^{(k+1)+1}}.
+                \end{align*}
+                This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, the proposition is proved for all \(n\in\mathbb{N}\) where \(n\geq0\).
+            \end{proof}
+        
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Reduction}{reduction}
+        
+            Prove that for all \(n\in\mathbb{N}, n \geq 0\),
+            \begin{equation*}
+                \int x^ne^{-x}\dd x = -e^{-x}\left(x^n+nx^{n-1}+n(n-1)x^{n-2}+n(n-1)(n-2)x^{n-3}+\cdots + n! \right)+C.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=0\). Then, the left hand side is equal to
+                \begin{equation*}
+                    \int e^{-x} \dd x=-e^{-x}+C.
+                \end{equation*}
+                The right hand side is equal to \(-e^{-x}+C\). Therefore, the left hand side is equal to the right hand side, proving the base case.
+                \\
+                \\
+                We assume that the relationship is true for \(n=k\). That is, we assume that
+                \begin{equation*}
+                    \int x^ke^{-x}\dd x = -e^{-x}(x^k+kx^{k-1}+k(k-1)x^{k-2}+k(k-1)(k-2)x^{k-3}+\cdots + k!)+C.
+                \end{equation*}
+                Let
+                \begin{equation*}
+                    u=e^{-x}(x^k+kx^{k-1}+k(k-1)x^{k-2}+k(k-1)(k-2)x^{k-3}+\cdots + k!).
+                \end{equation*}
+                Then,
+                \begin{align*}
+                    \int x^{k+1}e^{-x}\dd x&=-x^{k+1}e^{-x}-\int -e^{-x}x^k(k+1) \dd x \\
+                    &=-x^{k+1}e^{-x}-(k+1)\int -x^ke^{-x} \dd x \\
+                    &=-x^{k+1}e^{-x}+(k+1)\int x^ke^{-x} \dd x \\
+                    &=-x^{k+1}e^{-x}-e^{-x}(k+1)\frac{u}{e^{-x}}+C \\
+                    &=-e^{-x}\left(x^{k+1}+\frac{u(k+1)}{e^{-x}}\right)+C \\
+                    &=-e^{-x}\left(x^{k+1}+(k+1)x^k+k(k+1)x^{k-1}+\cdots+(k+1)!\right)+C.
+                \end{align*}
+                    This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, the above formula is true for all \(n\in\mathbb{N}\) where \(n \geq 0\).
+            \end{proof}
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,The Shoelace Lemma}{shoelace}
+        
+            The following is a statement of the Shoelace Lemma.
+            \begin{quote}
+                Consider a simple polygon with vertices \((x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)\), oriented clockwise. Let \((x_{n+1}, y_{n+1})=(x_1, y_1)\). The area of the polygon is given by
+                \begin{equation*}
+                    A_n=\frac{1}{2}\left[\sum_{i=1}^n x_iy_{i+1}-x_{i+1}y_i \right].
+                \end{equation*}
+            \end{quote}
+            Prove the above proposition.
+            \begin{proof}
+                Consider a polygon with three vertices: \((x_1, y_1)\), \((x_2, y_2)\), and \((x_3, y_3)\). The area, given by the Shoelace Lemma, is
+                \begin{equation*}
+                    A_3=\frac{1}{2}\left[\sum_{i=1}^3 x_iy_{i+1}-x_{i+1}y_i \right]=\frac{1}{2}\left[x_1y_2-x_2y_1+x_2y_3-x_3y_2+x_3y_1-y_3x_1\right].
+                \end{equation*}
+                Then, if we define two vectors \((\vec{v},\vec{w})\in\mathbb{R}^3\) such that
+                \begin{equation*}
+                    \vec{v}=(x_2-x_1, y_2-y_1, 0),\quad\vec{w}=(x_3-x_1, y_3-y_1, 0),
+                \end{equation*}
+                we may see that the area of the parallelogram formed by the two vectors is given by
+                \begin{equation*}
+                    A_{||GRAM}=||\vec{v} \times \vec{w}||
+                \end{equation*}
+                Either of the two triangles formed by the parallelogram's diagonals correspond to our polygon. The area is then given by
+                \begin{align*}
+                    A_3&=\frac{1}{2}||\vec{v} \times \vec{w}|| \\
+                    &=\frac{1}{2}\left|\left|(0, 0, x_1y_2-x_2y_1+x_2y_3-x_3y_2+x_3y_1-y_3x_1)\right|\right| \\
+                    &=\frac{1}{2}\left[x_1y_2-x_2y_1+x_2y_3-x_3y_2+x_3y_1-y_3x_1\right].
+                \end{align*}
+                Therefore, we have proved the Shoelace Lemma in the case of a polygon with three vertices. By induction, we suppose that for a polygon with \(k\) vertices \((x_1, y_1), (x_2, y_2), \ldots, (x_k, y_k)\), the area is
+                \begin{equation*}
+                    A_k=\frac{1}{2}\left[\sum_{i=1}^k x_iy_{i+1}-x_{i+1}y_i \right].
+                \end{equation*}
+                The area of a polygon with vertices \((x_1, y_1), (x_2, y_2), \ldots, (x_{k+1}, y_{k+1})\) is given by the sum of the area of the polygon with vertices \((x_1, y_1), (x_2, y_2), \ldots, (x_k, y_k)\) and the area of the polygon with vertices \((x_1, y_1)\), \((x_k, y_k)\), and \((x_{k+1}, y_{k+1})\). That is,
+                \begin{align*}
+                    A_{k+1}&=\frac{1}{2}\left[\sum_{i=1}^k x_iy_{i+1}-x_{i+1}y_i \right]+\frac{1}{2}\left[x_1y_k-x_ky_1+x_ky_{k+1}-x_{k+1}y_k+x_{k+1}y_1-y_{k+1}x_1\right] \\
+                    &=\frac{1}{2}\left[\sum_{i=1}^{k+1} x_iy_{i+1}-x_{i+1}y_i \right].
+                \end{align*}
+                The above result is the consequence of the Shoelace Lemma in the case of a polygon with \(k+1\) vertices. Therefore, the Shoelace Lemma is proved.
+            \end{proof}
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Fibonacci}{fibonacci}
+        
+            Let \(f_n\) represent the sequence of Fibonacci numbers, which is defined recursively as
+            \begin{equation*}
+                f_0=1,\,f_1=1,\,f_n=f_{n-1}+f_{n-2}.
+            \end{equation*}
+            Prove that
+            \begin{equation*}
+                \sum_{i=0}^n(f_i)^2=f_nf_{n+1}.
+            \end{equation*}
+            \begin{proof}
+                Consider the base case \(n=0\). Then the left hand side is equal to \(1\), and the right hand side is
+                \begin{equation*}
+                    (1)f_1=1.
+                \end{equation*}
+                Therefore, the left hand side is equal to the right hand side, proving the first base case. Then, consider the base case \(n=1\). The left hand side is equal to \(2\), and the right hand side is \(1\cdot f_2\) where \(f_2=f_1+f_0=2\). Therefore the right hand side is \(2\) and is equal to the left hand side proving the second base case.
+                \\
+                \\
+                We suppose that the relationship is true for \(n=k\) where \(k\in\mathbb{N}\). That is, we suppose that
+                \begin{equation*}
+                    \sum_{i=0}^k(f_i)^2=f_kf_{k+1}.
+                \end{equation*}
+                If we add \((f_{k+1})^2\) to both sides, we have
+                \begin{align*}
+                    (f_{k+1})^2+\sum_{i=0}^k(f_i)^2&=f_kf_{k+1}+(f_{k+1})^2 \\
+                    &=f_{k+1}(f_k+f_{k+1}) \\
+                    &=f_{k+1}f_{k+2}.
+                \end{align*}
+                This result is the proposition where \(n=k+1\). Therefore, the inductive step is true. Therefore, the above formula is true for all \(n\in\mathbb{N}\) where \(n \geq 0\).
+            \end{proof}
+        \end{exercise}
+        
+    \pagebreak    
+    \subsection{Direct Proofs}
+    
+        Direct Proofs are the simplest style of proofs, and are especially useful when proving implications. Consider the following examples.
+        
+        \begin{example}{\Difficulty\,\Difficulty\,\,Direct Proof 1}{dirproof1}
+        
+        Prove that for all integers \(n\), if \(n\) is even, then \(n^2\) is even.
+        
+        \begin{proof}
+            Let \(n\in\mathbb{Z}\) and suppose that \(n\) is even. Let \(m\in\mathbb{Z}\). Thus, \(n=2m\). Then, \(n^2=(2m)^2=4m^2=2(2m^2)\). Because \(2m^2\in\mathbb{Z}\), \(n^2\) is even.
+        \end{proof}
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Direct Proof 2}{dirproof2}
+        
+        Prove that for all integers \(a\), \(b\), and \(c\), if \(a|b\) and \(b|c\), then \(a|c\).
+        
+        \begin{proof}
+            Let \((a,b,c,p,q,r)\in\mathbb{Z}\) and suppose that \(a|b\) and\(b|c\). Because \(a|b\), \(b=pa\). Because \(b|c\), \(c=qb=pqa\). Because \(c\) is an integer multiple of \(a\), \(a|c\).
+        \end{proof}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Direct Proof 1}{dirproof1}
+        
+        Prove that for any two odd integers, their sum is even.
+        
+        \begin{proof}
+            Let \((m,n)\in\mathbb{Z}:m\bmod2\neq0:n\bmod2\neq0\) and let \((p,q)\in\mathbb{Z}\). Because \(m\) and \(n\) are odd, \(m=2p+1\) and \(n=2q+1\). Therefore,
+            \begin{align*}
+                m+n&=(2p+1)+(2q+1) \\
+                &=2p+2q+2 \\
+                &=2(p+q+1).
+            \end{align*}
+            Because \((p+q+1)\in\mathbb{Z}\), \(m+n\) is even.
+        \end{proof}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Direct Proof 2}{dirproof2}
+        
+        Prove that for all integers \(n\), if \(n\) is odd, then \(n^2\) is odd.
+        
+        \begin{proof}
+            Let \(n\in\mathbb{Z}:n\bmod2\neq0\) and let \(p\in\mathbb{Z}\). Because \(n\) is odd, \(n=2p+1\). Therefore,
+            \begin{align*}
+                n^2&=(2p+1)^2 \\
+                &=4p^2+4p+1 \\
+                &=2(2p^2+2p)+1.
+            \end{align*}
+            Because \((2p^2+2p)\in\mathbb{Z}\), \(n^2\) is odd.
+        \end{proof}
+        
+        \end{exercise}
+    
+    \subsection{Proof by Contrapositive}
+    
+        Recall that for two statements \(P\) and \(Q\), \((P\implies Q)\iff(\neg Q\implies \neg P)\). In a Proof by Contrapositive, we produce a direct proof of the contrapositive of the implication. This is equivalent to proving the implication, because the implication is logically equivalent to the contrapositive. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Proof by Contrapositive 1}{proofcontrap1}
+        
+        Prove that for all integers \(n\), if \(n^2\) is even, then \(n\) is even.
+        
+        \begin{proof}
+            Let \(n\in\mathbb{Z}:n\bmod2\neq0\). By Exercise \ref{exe:dirproof2}, \(n^2\) is odd.
+        \end{proof}
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Proof by Contrapositive 2}{proofcontrap2}
+        
+        Prove that for all integers \(a\) and \(b\), if \(a+b\) is odd, then \(a\) is odd or \(b\) is odd.
+       
+        \begin{proof}
+            Let \((a, b,p,q)\in\mathbb{Z}\). Suppose that \(a\) is even and \(b\) is even. Then, \(a=2p\) and \(b=2q\). We see that
+            \begin{align*}
+                a+b&=2p+2q \\
+                &=2(p+q).
+            \end{align*}
+            Because \((p+q)\in\mathbb{Z}\), \(a+b\) is even.
+        \end{proof}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Proof by Contrapositive 1}{proofcontrap1}
+        
+        Prove that for real numbers \(a\) and \(b\), if \(ab\) is irrational, then \(a\) or \(b\) must be an irrational number.
+        
+        \begin{proof}
+            Let \((p,q,r,s)\in\mathbb{Z}\). Suppose that \((a,b)\in\mathbb{Q}\). Therefore, \(a=\frac{p}{q}\) and \(b=\frac{r}{s}\). We see that
+            \begin{equation*}
+                ab=\frac{pr}{qs}\in\mathbb{Q}
+            \end{equation*}
+            Therefore \(ab\) is rational.
+        \end{proof}
+        
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Proof by Contrapositive 2}{proofcontrap2}
+        
+        Prove that for integers \(a\) and \(b\), if \(ab\) is even, then \(a\) or \(b\) must be even.
+        
+        \begin{proof}
+            Let \((a,b,p,q)\in\mathbb{Z}\). Suppose that \(a=2p+1\) and \(b=2q+1\). We see that
+            \begin{align*}
+                ab&=(2p+1)(2q+1) \\
+                &=4pq+2p+2q+1 \\
+                &=2(2pq+p+q)+1
+            \end{align*}
+            Because \((2pq+p+q)\in\mathbb{Z}\), \(ab\) is odd.
+        \end{proof}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Proof by Contrapositive 3}{proofcontrap3}
+        
+        Prove that for any integer \(a\), if \(a^2\) is not divisible by \(4\), then \(a\) is odd.
+        
+        \begin{proof}
+            Let \(a,p\in\mathbb{Z}\). Suppose that \(a\) is even, and \(a=2p\). Then, \(a^2=4p^2\), and \(4|4p^2\), so \(4|a^2\).
+        \end{proof}
+        
+        \end{exercise}
+        
+    \subsection{Proof by Contradiction}
+    
+        Sometimes, a statement, \(P\) cannot be rephrased as an implication. In these cases, it may be useful to prove that \(P\implies Q\), and also prove that \(P\implies \neg Q\). Then, we conclude \(\neg P\). One may scrutinize Exercise \ref{exe:detrule2} for further explanation. Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Proof by Contradiction 1}{proofcontrad1}
+        
+            Prove that \(\sqrt{2}\) is irrational.
+            
+            \begin{proof}
+                Suppose that \(\sqrt{2}\) is rational. Then,
+                \begin{equation*}
+                    \sqrt{2}=\frac{p}{q}
+                \end{equation*}
+                where \((p,q)\in\mathbb{Z}\) and \(\frac{p}{q}\) is in lowest terms. By squaring both sides of the equation, we have
+                \begin{equation*}
+                    2=\frac{p^2}{q^2}.
+                \end{equation*}
+                This means that
+                \begin{equation*}
+                    2q^2=p^2,
+                \end{equation*}
+                and as \(q^2\in\mathbb{Z}\), \(p^2\) is even, which means that by Example \ref{exa:proofcontrap1}, \(p\) is even. We see that \(p=2k\) for some \(k\in\mathbb{Z}\). Then, we have
+                \begin{equation*}
+                    2q^2=(2k)^2=4k^2
+                \end{equation*}
+                meaning that
+                \begin{equation*}
+                    q^2=2k^2.
+                \end{equation*}
+                Therefore, \(q\) is even. If \(p\) and \(q\) are both even, \(\frac{p}{q}\) is not in lowest terms. Therefore, \(\sqrt{2}\) is irrational.
+            \end{proof}
+        
+        \end{example}

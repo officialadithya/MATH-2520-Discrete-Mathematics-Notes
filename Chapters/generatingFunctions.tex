@@ -1,0 +1,194 @@
+\section{Lecture 14: July 19, 2022}
+
+    \subsection{Generating Functions and Recurrence Relations}
+    
+        Generating Functions are situated in another branch of combinatorics: algebraic combinatorics. Consider the following definition.
+        \begin{definition}{\Stop\,\,Generating Functions}{genfun}
+        
+            Given a sequence of real numbers, \(a_n\), the associated generating function is 
+            \begin{equation*}
+                f(x)=\sum_{n=0}^\infty a_nx^n.
+            \end{equation*}
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\,A Generating Function for a Constant Sequence}{genfuncon}
+        
+            Find a generating function for \(a_n=1,1,1,\ldots\).
+            \\
+            \\
+            We find that
+            \begin{equation*}
+                f(x)=\sum_{n=0}^\infty x^n=\frac{1}{1-x}.
+            \end{equation*}
+        
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,A Generating Function With Zeroes}{genfunzeroes}
+        
+            Find a generating function for \(a_n=1,0,1,0\ldots\).
+            \\
+            \\
+            We find that
+            \begin{equation*}
+                f(x)=\sum_{n=0}^\infty x^{2n}=\frac{1}{1-x^2}.
+            \end{equation*}
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        We will now show a much more beautiful example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Generating Function for the Fibonacci Sequence}{genfunfib}
+        
+            Find a generating function for
+            \begin{equation*}
+                F_0=0,\quad F_1=1, \quad F_n=F_{n-1}+F_{n-2}.
+            \end{equation*}
+            \\
+            \\
+            We find that
+            \begin{equation*}
+                f(x)=x+x^2+2x^3+3x^4+5x^5+8x^6+\cdots.
+            \end{equation*}
+            To find a closed form, we multiply both sides by \(x\) and \(x^2\), producing
+            \begin{equation*}
+                xf(x)=x^2+x^3+2x^4+3x^5+5x^6+8x^7+\cdots
+            \end{equation*}
+            and
+            \begin{equation*}
+                x^2f(x)=x^3+x^4+2x^5+3x^6+5x^7+8x^8+\cdots
+            \end{equation*}
+            We see that \(x^2f(x)+xf(x)=f(x)-x\). Now, we simply solve for \(x\), which provides
+            \begin{equation*}
+                f(x)=-\frac{x}{x^2+x-1}=\frac{x}{1-x-x^2}.
+            \end{equation*}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Generating functions can be used to solve recurrence relations, defined below.
+        \begin{definition}{\Stop\,\,Recurrence Relations}{recurrence}
+        
+            An equation, used in recursive definitions of sequences, that relates a term of a sequence \(a_n\) to previous terms.
+            
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        To illustrate the utility of generating functions, we will use the result of Example \ref{exa:genfunfib} to build an explicit formula for the Fibonacci sequence \(F_n\). The function
+        \begin{equation*}
+            f(x)=\frac{x}{1-x-x^2}
+        \end{equation*}
+        has asymptotes at \(x=-\frac{1\pm\sqrt{5}}{2}\). We perform partial fraction decomposition, resulting in
+        \begin{equation*}
+            x=A\left(1-\frac{x}{-\frac{1-\sqrt{5}}{2}}\right)+B\left(1-\frac{x}{-\frac{1+\sqrt{5}}{2}}\right).
+        \end{equation*}
+        Using normal techniques produces \(A=-\frac{\sqrt{5}}{5}\) and \(B=\frac{\sqrt{5}}{5}\). Therefore,
+        \begin{align*}
+            f(x)&=\frac{-\sqrt{5}}{5\left(1-\frac{x}{-\frac{1+\sqrt{5}}{2}}\right)}+\frac{\sqrt{5}}{5\left(1-\frac{x}{-\frac{1-\sqrt{5}}{2}}\right)} \\
+            &=-\frac{\sqrt{5}}{5}\sum_{n=0}^\infty \left(\frac{x}{-\frac{1+\sqrt{5}}{2}}\right)^n+\frac{\sqrt{5}}{5}\sum_{n=0}^\infty \left(\frac{x}{-\frac{1-\sqrt{5}}{2}}\right)^n \\
+            &=\sum_{n=0}^\infty \left(-\frac{\sqrt{5}}{5}\left(-\frac{2}{1+\sqrt{5}}\right)^nx^n+\frac{\sqrt{5}}{5}\left(-\frac{2}{1-\sqrt{5}}\right)^nx^n\right) \\
+            &=\sum_{n=0}^\infty \underbrace{\left(-\frac{\sqrt{5}}{5}\left(-\frac{2}{1+\sqrt{5}}\right)^n+\frac{\sqrt{5}}{5}\left(-\frac{2}{1-\sqrt{5}}\right)^n\right)}_{F_n}x^n.
+        \end{align*}
+        By algebraic simplification, we find
+        \begin{equation*}
+            F_n=\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right).
+        \end{equation*}
+        This is quite stunning, we have just found an explicit formula for the Fibonacci sequence! This formula has a special name and is known as Binet's Formula. Finding explicit formulas for recurrence relations is a key application of generating functions. We provide a few exercises on the next page.
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        For clarity, consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Finding an Explicit Formula 1}{findingexplicit1}
+        
+            Find an explicit formula for \(a_n=1,1,-1,-1,1,1,-1,-1,\ldots\).
+            \\
+            \\
+            The recurrence is \(a_0=a_1=1\) and \(a_n=-a_{n-2}\). Here, we see a second depth recursion. The generating function is
+            \begin{equation*}
+                f(x)=1+x-x^2-x^3+x^4+x^5+\cdots.
+            \end{equation*}
+            We will multiply both sides by \(x\) and \(x^2\), producing
+            \begin{equation*}
+                xf(x)=x+x^2-x^3-x^4+x^5+x^6+\cdots
+            \end{equation*}
+            and
+            \begin{equation*}
+                x^2f(x)=x^2+x^3-x^4-x^5+x^6+x^7+\cdots.
+            \end{equation*}
+            We see that \(x^2f(x)=-(f(x)-x-1)\) and \(f(x)=\frac{1+x}{1+x^2}\). By partial fraction decomposition over the complex numbers, we have
+            \begin{equation*}
+                1+x=A(x+i)+B(x-i).
+            \end{equation*}
+            By standard techniques, we obtain
+            \begin{align*}
+                \frac{1+x}{1+x^2}&=\frac{1-i}{-2i(x+i)}+\frac{1+i}{2i(x-i)} \\
+                &=\frac{1-i}{2}\frac{1}{1-ix}+\frac{1+i}{2}\frac{1}{1-(-ix)} \\
+                &=\frac{1-i}{2}\sum_{n=0}^\infty (ix)^n+\frac{1+i}{2}\sum_{n=0}^\infty (-ix)^n \\
+                &=\sum_{n=0}^\infty\left(\frac{1-i}{2}i^n+\frac{1+i}{2}(-i)^n\right)x^n
+            \end{align*}
+            Therefore,
+            \begin{equation*}
+                a_n=\frac{1-i}{2}i^n+\frac{1+i}{2}(-i)^n.
+            \end{equation*}
+            
+        \end{exercise}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Finding an Explicit Formula 2}{findingexplicit2}
+        
+            Consider the recurrence relation
+            \begin{equation*}
+                a_0=1,\quad a_1=5,\quad a_n=3a_{n-1}-a_{n-2}.
+            \end{equation*}
+            Use a generating function to find an explicit formula for the sequence.
+            \\
+            \\
+            We list a few terms of \(a_n\), producing
+            \begin{equation*}
+                a_n=\{1,5,14,37,97,254,665,1741,4558,11993,\ldots\}.
+            \end{equation*}
+            The corresponding generating function is
+            \begin{equation*}
+                f(x)=1+5x+14x^2+37x^3+97x^4+254x^5+\cdots.
+            \end{equation*}
+            We also see that
+            \begin{equation*}
+                -3xf(x)=-3x-15x^2-42x^3-111x^4-291x^5-762x^6-\cdots
+            \end{equation*}
+            and
+            \begin{equation*}
+                x^2f(x)=x^2+5x^3+14x^4+37x^5+97x^6+254x^7+\cdots.
+            \end{equation*}
+            That means that \(f(x)-3xf(x)+x^2f(x)=1+2x\). That is,
+            \begin{equation*}
+                f(x)=\frac{1+2x}{1-3x+x^2}.
+            \end{equation*}
+            By partial fraction decomposition that was done on paper because doing \LaTeX\ for that would be cumbersome, we have
+            \begin{align*}
+                f(x)&=\frac{4+\sqrt{5}}{\sqrt{5}\left(x+\frac{-3-\sqrt{5}}{2}\right)}-\frac{4-\sqrt{5}}{\sqrt{5}\left(x+\frac{-3+\sqrt{5}}{2}\right)} \\
+                &=\frac{4+\sqrt{5}}{\sqrt{5}\frac{-3-\sqrt{5}}{2}\left(\frac{x}{\frac{-3-\sqrt{5}}{2}}+1\right)}-\frac{4-\sqrt{5}}{\sqrt{5}\frac{-3+\sqrt{5}}{2}\left(\frac{x}{\frac{-3+\sqrt{5}}{2}}+1\right)} \\
+                &=\frac{4+\sqrt{5}}{\frac{-3\sqrt{5}-5}{2}\left(1+\frac{x}{\frac{-3-\sqrt{5}}{2}}\right)}-\frac{4-\sqrt{5}}{\frac{-3\sqrt{5}+5}{2}\left(1+\frac{x}{\frac{-3+\sqrt{5}}{2}}\right)} \\ 
+                &=\frac{8+2\sqrt{5}}{-3\sqrt{5}-5}\sum_{n=0}^\infty(-1)^n\left(\frac{2x}{-3-\sqrt{5}}\right)^n-\frac{8-2\sqrt{5}}{-3\sqrt{5}+5}\sum_{n=0}^\infty(-1)^n\left(\frac{2x}{-3+\sqrt{5}}\right)^n \\
+                &=\sum_{n=0}^\infty\frac{8+2\sqrt{5}}{-3\sqrt{5}-5}\left(-\frac{2}{-3-\sqrt{5}}\right)^nx^n-\sum_{n=0}^\infty\frac{8-2\sqrt{5}}{-3\sqrt{5}+5}\left(-\frac{2}{-3+\sqrt{5}}\right)^nx^n \\
+                &=\sum_{n=0}^\infty\left(\frac{8+2\sqrt{5}}{-3\sqrt{5}-5}\left(-\frac{2}{-3-\sqrt{5}}\right)^n-\frac{8-2\sqrt{5}}{-3\sqrt{5}+5}\left(-\frac{2}{-3+\sqrt{5}}\right)^n\right)x^n.
+            \end{align*}
+            We now have an explicit formula for the recurrence. We see that
+            \begin{equation*}
+                a_n=\frac{8+2\sqrt{5}}{-3\sqrt{5}-5}\left(-\frac{2}{-3-\sqrt{5}}\right)^n-\frac{8-2\sqrt{5}}{-3\sqrt{5}+5}\left(-\frac{2}{-3+\sqrt{5}}\right)^n.
+            \end{equation*}
+        
+        \end{exercise}

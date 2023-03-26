@@ -1,0 +1,101 @@
+\documentclass[oneside]{book}
+
+\include{preamble}
+\geometry{left=2.54cm}
+\geometry{right=2.54cm}
+\colorlet{chaptergrey}{black}
+
+\include{title}
+
+\begin{document}
+
+\begin{center} 
+    \begin{minipage}{\textwidth}
+        \maketitle
+        \begin{center}
+        \begin{tabular}{c}
+            FRONT RANGE COMMUNITY COLLEGE \\
+            \hline \\
+        \end{tabular}
+        \\
+        \includegraphics[scale=0.5]{Graphics/FRCC.jpeg}
+        \end{center}
+    \end{minipage}
+\end{center}
+
+\frontmatter
+
+\tableofcontents
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\pagebreak
+
+\mainmatter
+
+\begin{savequote}
+Pure mathematics is, in its way, the poetry of logical ideas.
+\\
+\\
+Albert Einstein
+\end{savequote}
+\chapter{Statements, Symbolic Logic, and Proofs}
+
+    \input{Chapters/statementsSymbolicLogicProofs}
+
+%\begin{savequote}[45mm]
+
+%\end{savequote}
+%\chapter{Sequences}
+
+%    \input{Chapters/sequences}
+    
+\begin{savequote}[45mm]
+A set is a many that allows itself to be thought of as a one.
+\\
+\\
+Georg Cantor
+\end{savequote}
+\chapter{Sets, Relations, and Functions}
+
+    \input{Chapters/setsRelationsFunctions}
+    
+\begin{savequote}[45mm]
+[This] is the city I chose to live in for 6 years of grad school lol Combintoropolis.
+\\
+\\
+Kenneth M. Monks
+\end{savequote}
+\chapter{Enumerative Combinatorics}
+
+    \input{Chapters/combinatorics}
+
+\begin{savequote}[45mm]
+A generating function is a clothesline on which we hang up a sequence of numbers for display.
+\\
+\\
+Herbert Wilf
+\end{savequote}
+\chapter{Generating Functions and Recurrence Relations}
+
+    \input{Chapters/generatingFunctions}      
+    
+%\begin{savequote}[45mm]
+
+%\end{savequote}
+%\chapter{Graph Theory}
+
+%    \input{Chapters/graphTheory}
+    
+\begin{savequote}[45mm]
+Why are numbers beautiful? It’s like asking why is Beethoven’s Ninth Symphony beautiful. If you don’t see why, someone can’t tell you. I know numbers are beautiful. If they aren’t beautiful, nothing is.
+\\
+\\
+Paul Erd\"{o}s
+\end{savequote}
+\chapter{Number Theory}
+
+    \input{Chapters/numberTheory}   
+        
+\end{document}

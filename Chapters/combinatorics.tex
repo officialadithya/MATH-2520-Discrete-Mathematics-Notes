@@ -1,0 +1,494 @@
+\section{Lecture 10: July 5, 2022}
+
+    \subsection{The Fundamental Principle of Counting}
+
+        Consider the following theorem.
+
+        \begin{theorem}{\Stop\,\,The Fundamental Principle of Counting}{fpc}
+
+            If \(A\) and \(B\) are finite sets, 
+            \begin{equation*}
+                |A\times B|=|A|\cdot|B|.
+            \end{equation*}
+            Alternatively, if \(A\) and \(B\) are independent events, with \(A\) and \(B\) having \(m\) and \(n\) outcomes respectively, then \(A\) and \(B\) together have \(mn\) different outcomes. Independent events refer to the notion that \(A\) and \(B\) are not impacted by each other.
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\,A Basic Example}{basicfpc}
+
+            If \(A=\{1,2,3\}\) and \(B=\{m,n\}\), consider the table
+            \begin{center}
+                \begin{tabular}{c|cc}
+                    \hline
+                    & \(m\) & \(n\) \\
+                    \hline
+                    \(1\) & \((1,m)\) & \((1,n)\) \\
+                    \(2\) & \((2,m)\) & \((2,n)\) \\
+                    \(3\) & \((2,m)\) & \((2,n)\) \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            representing \(A\times B\). It is trivial to then conclude, \(|A\times B|=6\), which aligns with Theorem \ref{thm:fpc}.
+
+        \end{example}
+        \begin{example}{\Difficulty\,\,Ken's Favorite Deli}{deli}
+
+            Kenneth M. Monks is at a popular sandwich deli. Event \(A\) represents Ken picking a certain type of bread. Event \(B\) refers to Ken picking a certain meat. Ken's favorite deli has rye, white, and wheat bread, as well as turkey and ham. How many sandwich orders are possible?
+            \\
+            \\
+            Ken has the option to order \(6\) sandwiches. This example is essentially Example \ref{exa:basicfpc} in words.
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Four Digit Passcodes}{fourdigpass}
+
+            How many four digit passcodes exist?
+            \\
+            \\
+            For each digit, \(A\), \(B\), \(C\), and \(D\), ten independent outcomes exist. Therefore, \(10\cdot10\cdot10\cdot10=10^4\) passcodes exist.
+
+        \end{example}
+
+    \subsection{Permutations}
+
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Permutations}{permutations}
+
+            A permutation is an ordered list of \(k\) distinct objects chosen from \(n\) options. The number of permutations of \(k\) objects selected from \(n\) options is given by
+            \begin{equation*}
+                ^nP_k=n(n-1)(n-2)\cdots(n-k+1)=\frac{n!}{(n-k)!}.
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Permutations are used very often in ``combination locks.'' Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,``Combination Locks''}{comblocks}
+
+            Combination locks are actually permutation locks--the order of each number matters. How many ways can one choose \(3\) numbers, the standard for a ``combination lock,'' from \(40\) options. Each number must be unique.
+            \\
+            \\
+            This problem asks us to compute \(^{40}P_3\). By the formula in Theorem \ref{thm:permutations},
+            \begin{equation*}
+                ^{40}P_3=\frac{40!}{(40-3)!}=59280.
+            \end{equation*}
+            Therefore, there are \(59280\) possible permutations of selecting \(3\) digits from \(40\) options.
+
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        We now revisit Example \ref{exa:fourdigpass}.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Four Digit Passcodes Without Repeats}{fourdigpassnorep}
+
+            How many four digit passcodes exist where each digit must be distinct? If one were to randomly pick a four digit passcode \(x\), what is the probability that \(\underbrace{x\text{ has no repeated digits}}_{U(x)}\)?
+            \\
+            \\
+            This problem asks us to compute \(^{10}P_4=5040\). Therefore, there are \(5040\) passcodes. Note that this is actually less secure than the scenario given in Example \ref{exa:fourdigpass}. The probability that a random four digit passcode has no repeated digits is simply the ratio
+            \begin{equation*}
+                P(U(x))=\frac{^{10}P_4}{10^4}=50.4\%.
+            \end{equation*}
+
+        \end{example}
+
+    \subsection{Combinations}
+
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Combinations}{combinations}
+
+            A combination is an unordered list of \(k\) distinct objects chosen from \(n\) options. The number of combinations of \(k\) objects selected from \(n\) options is given by
+            \begin{equation*}
+                ^nC_k=\binom{n}{k}=\frac{^nP_k}{k!}=\frac{n!}{k!(n-k)!}.
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Comparisons}{compare}
+
+            Consider both ways of selecting \(3\) letters from the first five letters \(\{\text{A},\text{B},\text{C},\text{D},\text{E}\}\).
+            \\
+            \\
+            We first start with \(^5P_3=\frac{5!}{(5-3)!}=60\). This means that when order is considered, there are \(60\) ways to select \(3\) objects from five.
+            \\
+            \\
+            We also see that \(^5C_3=\frac{5!}{3!(5-3)!}=10\). This means that when order is not considered, there are \(10\) ways to select \(3\) objects from five.
+
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        There is a very important connection between combinations and binomials, the Binomial Theorem, which we state below.
+        \begin{theorem}{\Stop\,\,The Binomial Theorem}{binomthm}
+            Binomials may be expanded by the identities
+            \begin{align*}
+                (x+y)^n&=\binom{n}{0}x^n+\binom{n}{1}x^{n-1}y+\binom{n}{2}x^{n-2}y^2+\cdots+\binom{n}{n-1}xy^{n-1}+\binom{n}{n}y^n \\
+                (x-y)^n&=\binom{n}{0}x^n-\binom{n}{1}x^{n-1}y+\binom{n}{2}x^{n-2}y^2-\cdots\pm\binom{n}{n-1}xy^{n-1}\mp\binom{n}{n}y^n,
+            \end{align*}
+            or equivalently,
+            \begin{align*}
+                (x+y)^n&=x^n+nx^{n-1}y+\frac{n(n-1)}{2!}x^{n-2}y^2+\cdots+nxy^{n-1}+y^n \\
+                (x-y)^n&=x^n-nx^{n-1}y+\frac{n(n-1)}{2!}x^{n-2}y^2-\cdots\pm nxy^{n-1}\mp y^n.
+            \end{align*}
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        As a Corollary to Theorem \ref{thm:binomthm}, the Binomial Series is often presented in Calculus II as
+        \begin{equation*}
+            (1+x)^n=\sum_{k=0}^{\infty}\binom{n}{k}x^k.
+        \end{equation*}
+        This series converges when \(|x|<1\). The convergence of series at the endpoints, though, depend on the value of \(n\). If \(-1<n\leq 0\), the series converges at \(1\), and if \(n\geq 0\), the series converges at both endpoints.
+        
+    \pagebreak
+    
+\section{Lecture 11: July 7, 2022}
+        
+    \subsection{Multichoose}
+    
+        This technique is designed to answer the question
+        \begin{quote}
+            How many different three-scoop blended milkshakes can be made at an ice cream shop that carries chocolate, vanilla, strawberry, and pistachio ice cream?
+        \end{quote}
+        and its variants.
+        \\
+        \\
+        The answer is not given by \(^4P_3\) or \(^4C_3\) because to create milkshakes, the order in which the flavors are chosen does not matter, and multiple flavors can be chosen repeatedly. We may start listing out possible milkshakes with \(n=4\) options and \(k=3\) objects: 
+        \begin{center}
+            \begin{tabular}{c|c}
+            \hline
+            Scoop Combination & Equivalent Stars and Bars \\
+            \hline
+            CCC & \(\star\star\star|||\) \\
+            CCP & \(\star\star|\star||\) \\
+            CCS & \(\star\star||\star|\) \\
+            CCV & \(\star\star|||\star\) \\
+            CPP & \(\star|\star\star||\) \\
+            CPS & \(\star|\star|\star|\) \\
+            CPV & \(\star|\star||\star\) \\
+            CSS & \(\star||\star\star|\) \\
+            CSV & \(\star||\star|\star\) \\
+            CVV & \(\star|||\star\star\) \\
+            \(\vdots\) & \(\vdots\) \\
+            VVV & \(|||\star\star\star\) \\
+            \hline
+            \end{tabular}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        To generalize this problem of selecting \(k\) objects from \(n\) options where order does not matter and repeats are allowed, we may use the ``Stars and Bars,'' technique. A star represents a scoop of ice cream, and a bar changes the type of ice cream being scooped. Consider the above table for examples. Notice that there are \(n+k-1=6\) characters in each string in the second column. We wish to select \(k=3\) to be stars, so the rest are bars. How many ways can we do this? Well, the answer is \(^6C_3=20\). This question is equivalent to our first question, as the method of assigning scoop combinations to strings of stars and bars is a bijection. Therefore, there are precisely \(20\) milkshakes that can be created! With this, we present the Multichoose Theorem.
+        \begin{theorem}{\Stop\,\,The Multichoose Theorem}{multichoose}
+        
+            The number of ways to select \(k\) objects from \(n\) options, where order does not matter and repeats are allowed, is given by
+            \begin{equation*}
+                ^{n+k-1}C_k=\binom{n+k-1}{k}.
+            \end{equation*}
+            
+        \end{theorem}
+        
+    \pagebreak
+        
+    \subsection{Selecting \(k\) Objects From \(n\) Options}
+    
+        In this section, we wish to provide a summary of selecting \(k\) objects from \(n\) options and provide some mixed practice. Consider the table
+        \begin{center}
+            \begin{tabular}{l||c|c}
+                \hline
+                & & \\
+                Selecting \(k\) Objects From \(n\) Options & Ordered & Unordered \\
+                & & \\
+                \hline
+                \hline
+                & & \\
+                Repeats Allowed & \(\prod_{i=1}^k n=n^k\) & \(\binom{n+k-1}{k}\) \\
+                & & \\
+                \hline
+                & & \\
+                Repeats Not Allowed & \(^nP_k\) & \(^nC_k\) \\
+                & & \\
+                \hline
+            \end{tabular}
+        \end{center}
+        that represents the four possible options. Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Lottery}{lottery}
+        
+            What is the probability of winning the lottery by correctly bubbling in \(5\) numbers out of \(50\). The numbers are provided in ascending order on a lottery card. 
+            \\
+            \\
+            Here, order does not matter, as in the end, all five numbers will be bubbled in. Also, repeats are not allowed, because a number may only be bubbled in once. Therefore, the answer is given by \(\frac{1}{^{50}C_5}=\frac{1}{2118760}\).
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Burger-Eating Competition}{burger}
+        
+            Ken, Faith, and Rocco are going to a burger-eating competition. Between the three of them, they have to collectively eat \(10\) burgers. How many ways are there to do this?
+            \\
+            \\
+            Here, order does not matter, as each person may eat a burger at any time, just as long as ten burgers are eaten in the end. Also, repeats are allowed, because any one person may eat more than one burger. Therefore, we may apply the Multichoose Theorem, Theorem \ref{thm:multichoose}, to obtain \(\binom{3+10-1}{10}=66\).
+        
+        \end{exercise}
+        
+    \pagebreak
+    
+\section{Lecture 12, July 12, 2022}
+    
+    \subsection{Permutations, With Some Repeats}
+    
+        This technique is designed to answer the question
+        \begin{quote}
+           How many ways are there to rearrange the letters of the word ``MISSISSIPPI?''
+        \end{quote}
+        and its variants. Notice that ``MISSISSIPPI'' has \(1\) ``M,'' \(4\) ``I''s, \(4\) ``S''s, and \(2\) ``P''s. Not all letters are repeated, and the ones that are, are repeated a different number of times.
+        \\
+        \\
+        Before answering the above question, we consider a few simpler ones. 
+        \begin{example}{\Difficulty\,\,Ways to Rearrange ``FACE''}{face}
+        
+            How may ways are there to rearrange the letters of the word ``FACE?''
+            \\
+            \\
+            Here, order matters and repeats are not allowed. Therefore, the answer is given by \(^4P_4=4!=24\).
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\,Ways to Rearrange ``CHEESE''}{cheese}
+        
+            How may ways are there to rearrange the letters of the word ``CHEESE''
+            \\
+            \\
+            Here, order matters, but we have some repeats, namely the three ``E''s. For a moment, let's consider those three ``E''s to be different. That is, let ``CHE\textsubscript{1}E\textsubscript{2}SE\textsubscript{3}'' be a different string to ``CHE\textsubscript{3}E\textsubscript{2}SE\textsubscript{1}.'' Now, all the letters are different, so we may use the same technique shown in Example \ref{exa:face} to find the number of rearrangements. This number is \(^6P_6=6!=720\). Now, we must divide by the number of ways of rearranging the three ``E''s. This is simply \(3!\), because there are three ``E''s that can go into three positions. Therefore, there are \(\frac{720}{3!}=120\) ways of rearranging the letters in ``CHEESE.''
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Finally, we will answer the original question.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Ways to Rearrange ``MISSISSIPPI''}{mississippi}
+        
+            How may ways are there to rearrange the letters of the word ``MISSISSIPPI''
+            \\
+            \\
+            Here, order matters, but we have some repeats, namely the \(4\) ``I''s, \(4\) ``S''s, and \(2\) ``P''s. If we consider these repetitions to be distinct, as we did in Example \ref{exa:cheese}, we get \(^{11}P_{11}\) rearrangements; however, we must divide by \(4!\), \(4!\), and \(2!\) to account for the number of ways of rearranging the repetitions. Therefore, there are \(\frac{^{11}P_{11}}{4!\cdot4!\cdot2!}=34650\) ways of rearranging the letters in ``MISSISSIPPI.''
+            
+        \end{exercise}
+        
+    \pagebreak
+        
+    \subsection{The Principle of Inclusion-Exclusion}
+    
+        The Principle of Inclusion-Exclusion is a result describing the cardinality of a union of \(n\) sets. For two sets, consider the following theorem.
+        \begin{theorem}{\Stop\,\,The Principle of Inclusion-Exclusion for \(2\) Sets}{pie2}
+        
+            If \(A\) and \(B\) are finite sets,
+            \begin{equation*}
+                |A\cup B|=|A|+|B|-|A\cap B|.
+            \end{equation*}
+        
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        This result is fairly intuitive. Consider a Venn Diagram of the two sets. Shade in \(A\) and \(B\), and note that \(A\cap B\) gets double counted. This is why \(A\cap B\) is subtracted from \(|A|+|B|\). Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Divisibility}{divisibility}
+        
+            How many integers from \(1\) to \(100\), inclusive, are divisible by \(2\) or \(3\).
+            \\
+            \\
+            Let \(A\) be the set of all integers from \(1\) to \(100\), inclusive, that are divisible by \(2\) and note that \(|A|=50\). Let \(B\) be the set of all integers from \(1\) to \(100\), inclusive, that are divisible by \(3\) and note that \(|B|=33\). The set of all integers from \(1\) to \(100\), inclusive, that are divisible by both \(2\) and \(3\) is the set of all integers from \(1\) to \(100\), inclusive, that are divisible by \(6\). This third set has cardinality \(16\). Therefore, by the Principle of Inclusion-Exclusion, there are \(50+33-16=67\) integers from \(1\) to \(100\), inclusive, that are divisible by \(2\) or \(3\).
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        For three sets, the Principle of Inclusion-Exclusion is provided below.
+        \begin{theorem}{\Stop\,\,The Principle of Inclusion-Exclusion for \(3\) Sets}{pie3}
+        
+            If \(A\), \(B\), and \(C\) are finite sets,
+            \begin{equation*}
+                |A\cup B\cup C|=|A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C|+|A\cap B\cap C|.
+            \end{equation*}
+        
+        \end{theorem}
+        
+\pagebreak
+        
+\section{Lecture 13: July 14, 2022}
+
+    \subsection{Combinatorial Proofs}
+    
+        We start with a visual exercise.
+        \begin{exercise}{\Difficulty\,\,Visual Analysis of Pascal's Triangle}{pascalvis}
+        
+            Consider the first six rows of Pascal's Triangle, provided below.
+            \begin{center}
+                \begin{tabular}{>{\(n=\)\hspace{3pt}}l<{\hspace{12pt}}*{13}{c}}
+                    0 &&&&&&&1&&&&&& \\
+                    1 &&&&&&1&&1&&&&& \\
+                    2 &&&&&1&&2&&1&&&& \\
+                    3 &&&&1&&3&&3&&1&&& \\
+                    4 &&&1&&4&&6&&4&&1&& \\
+                    5 &&1&&5&&10&&10&&5&&1& \\
+                    6 &1&&6&&15&&20&&15&&6&&1
+                \end{tabular}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Name, without proof, some patterns that are visible.
+            \begin{itemize}
+                \item Border entries are all \(1\).
+                \item Non-border entries are the sum of the two entries above.
+                \item The triangle is symmetric.
+                \item The sum of all entries on any row is a power of \(2\).
+            \end{itemize}
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        Recall that each entry in Pascal's Triangle can be written as a binomial coefficient. The \(k\)th entry in the \(n\)th row, where both \(k\) and \(n\) are zero-indexed, is \(\binom{n}{k}\). That is, the first six rows are
+        \begin{center}
+            \begin{tabular}{>{\(n=\)\hspace{3pt}}l<{\hspace{12pt}}*{13}{c}}
+                0 &&&&&&&\(\binom{0}{0}\)&&&&&& \\
+                1 &&&&&&\(\binom{1}{0}\)&&\(\binom{1}{1}\)&&&&& \\
+                2 &&&&&\(\binom{2}{0}\)&&\(\binom{2}{1}\)&&\(\binom{2}{2}\)&&&& \\
+                3 &&&&\(\binom{3}{0}\)&&\(\binom{3}{1}\)&&\(\binom{3}{2}\)&&\(\binom{3}{3}\)&&& \\
+                4 &&&\(\binom{4}{0}\)&&\(\binom{4}{1}\)&&\(\binom{4}{2}\)&&\(\binom{4}{3}\)&&\(\binom{4}{4}\)&& \\
+                5 &&\(\binom{5}{0}\)&&\(\binom{5}{1}\)&&\(\binom{5}{2}\)&&\(\binom{5}{3}\)&&\(\binom{5}{4}\)&&\(\binom{5}{5}\)& \\
+                6 &\(\binom{6}{0}\)&&\(\binom{6}{1}\)&&\(\binom{6}{2}\)&&\(\binom{6}{3}\)&&\(\binom{6}{4}\)&&\(\binom{6}{5}\)&&\(\binom{6}{6}\).
+            \end{tabular}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Rewriting Hypotheses in Pascal's Triangle}{rewritpascal}
+        
+            Rewrite the patterns discovered in Exercise \ref{exe:pascalvis} in terms of binomial coefficients.
+            \begin{itemize}
+                \item \(\binom{n}{0}=\binom{n}{n}=1\).
+                \item \(\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}\).
+                \item \(\binom{n}{k}=\binom{n}{n-k}\).
+                \item \(\binom{n}{0}+\binom{n}{1}+\binom{n}{2}+\cdots+\binom{n}{n}=2^n\).
+            \end{itemize}
+        
+        \end{exercise}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        The above identities were given without proof. To prove the identities, methods of either algebraic or combinatorial proof may be used. While algebraic proof certainly can show that an identity is true, it would not show \textit{why}. Instead, combinatorial proof is based precisely on \textit{why}. In general, combinatorial proofs for binomial identities are in the following format.
+        \begin{enumerate}
+            \item Find a counting problem that can be answered in two ways.
+            \item Explain why one answer to the counting problem is the left hand side of the identity.
+            \item Explain why one answer to the counting problem is the right hand side of the identity.
+            \item Conclude that the left hand side is equal to the right hand side because they are both answers to the same question.
+        \end{enumerate}
+        \vphantom
+        \\
+        \\
+        Consider the following examples and exercises.
+        \begin{example}{\Difficulty\,\Difficulty\,\Difficulty\,\,Pascal Proof 1}{pascpf1}
+        
+            Prove the binomial identity
+            \begin{equation*}
+                \binom{n}{0}+\binom{n}{1}+\binom{n}{2}+\cdots+\binom{n}{n}=2^n.
+            \end{equation*}
+            \begin{proof}
+                Consider a set \(S\) with cardinality \(n\). We note that \(|\mathcal{P}(S)|=2^n\), which is precisely the right hand side of the statement. We wish to show that the left hand side also produces the cardinality of \(\mathcal{P}(S)\). The term \(\binom{n}{0}\) corresponds to the fact that \(\emptyset\in\mathcal{P}(S)\), and the term \(\binom{n}{n}\) corresponds to the fact that \(S\in\mathcal{P}(S)\). The quantities \(\binom{n}{0}\) and \(\binom{n}{n}\) together provide \(2\) sets in \(\mathcal{P}(S)\). The terms \(\binom{n}{1},\binom{n}{2},\ldots,\binom{n}{n-1}\) correspond to the sets of cardinality \(1,2,\ldots,n-1\) in \(\mathcal{P}(S)\). In \(\mathcal{P}(S)\) there are \(\binom{n}{1}=\frac{n!}{1!(n-1)!}=n\) sets of cardinality \(1\), \(\binom{n}{2}=\frac{n!}{2!(n-2)!}=\frac{n(n-1)}{2!}\) sets of cardinality \(2\), \(\binom{n}{3}=\frac{n!}{3!(n-3)!}=\frac{n(n-1)(n-2)}{3!}\) sets of cardinality \(3\), etc. until we get to \(\binom{n}{n-1}=\frac{n!}{(n-1)!(n-n+1)!}=n!\) sets of cardinality \(n-1\). It is now clear that the left hand side also proves the cardinality of \(\mathcal{P}(S)\). The left hand side sums the number of sets with cardinality \(0,1,\ldots,n\) in \(\mathcal{P}(S)\). In contrast, the right hand side is the result of allowing each element of the set to ``choose'' to be in an \(n\)-length subset of \(S\).
+            \end{proof}
+        
+        \end{example}
+
+    \pagebreak
+    
+    \subsection{Introduction to Probability}
+    
+        Before we present any information, we will first say that the definitions and theorems herein are simplified and abridged. In future classes, the statements will be revised. With that consider the following definitions and theorems.
+        \begin{definition}{\Stop\,\,Probability}{prob}
+        
+            The probability of an event with finitely many equally likely possible outcomes is the number of successful outcomes divided by the total number of possible outcomes. If event \(X\) has outcome \(n\), write \(X=n\). Then, the probability of outcome \(n\) is written \(P(X=n)\).
+        
+        \end{definition}
+        \begin{theorem}{\Stop\,\,Sum of Probabilities}{sumprob}
+        
+            The sum of probabilities of event \(X\) with all outcomes is \(1\). That is,
+           \begin{equation*}
+               \sum_{n=0}^\infty P(X=n)=1.
+           \end{equation*}
+        
+        \end{theorem}
+        \begin{definition}{\Stop\,\,Expected Value}{expval}
+        
+            The expected value of event \(X\) is
+            \begin{equation*}
+                \sum_{n=0}^\infty nP(X=n).
+            \end{equation*}
+            Conceptually, the expected value is a weighted average of all possible outcomes. The expected value is not necessarily the most likely outcome.
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following examples and exercises.
+        \begin{example}{\Difficulty\,\,Expected Value of Rolling a Die}{dierollexpval}
+        
+            What is the expected value of rolling one six-sided die?
+            \\
+            \\
+            We may use the equation provided in Definition \ref{def:expval}. The expected value is then
+            \begin{equation*}
+                1\cdot\frac{1}{6}+2\cdot\frac{1}{6}+3\cdot\frac{1}{6}+4\cdot\frac{1}{6}+5\cdot\frac{1}{6}+6\cdot\frac{1}{6}+7\cdot0+8\cdot0+9\cdot0+\cdots=3.5.
+            \end{equation*}
+            We may interpret this as ``if the die is rolled ten times, the sum of the rolls would be approximately \(35\).''
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Full House 1}{fullhouse1}
+        
+            Recall that a full house, in five card poker, is when one has three cards of the one denomination and two cards of another denomination. For example ``QQQ77'' would be a full house. What is the probability of a full house?
+            \\
+            \\
+            We must first count the number of possible hands. A standard deck of cards has \(52\) cards, and we must select \(5\) to form a hand. Order does not matter and repeats are not allowed, so we have \(\binom{52}{5}\) hands. To count the number of possible full houses, we must first pick the \(2\) denominations from a set of \(13\). Again, order does not matter and repeats are not allowed, so we have \(\binom{13}{12}\). Out of those two denominations, we must pick one that has three cards and the other that has two card, giving us \(\binom{2}{1}\). There are also four suits for the first denomination that has three cards and four suits for the second denomination that has two cards. This gives us \(\binom{4}{3}\) and \(\binom{4}{2}\). To find the probability, we evaluate
+            \begin{equation*}
+                \frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\approx0.00144.
+            \end{equation*}
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,A Full House 2}{fullhouse2}
+        
+            Consider a game where the player first pays \(\$10\) to play and is then dealt \(5\) cards. If the player has a full house, they win \(\$5000\). Otherwise, nothing happens. What is the expected value of the game?
+            \\
+            \\
+            \begin{align*}
+                \sum_{n=0}^\infty nP(X=n)&=(5000-10)P(\text{WIN})+(-10)P(\text{LOSE}) \\
+                &=4990\left(\frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right)-10\left(1-\frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right) \\
+                &=2.8
+            \end{align*}
+            This means that if this game were to be set up in a casino, the casino would make approximately \(\$3\) per player considering both wins and losses.
+        
+        \end{example}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,A Four of a Kind}{fourofakind}
+        
+            In five card poker, a four of a kind is a set of four cards of the same denomination with the remaining card being anything else. We first pick the \(2\) denominations from a set of \(13\). Order does not matter and repeats are not allowed, so we have \(\binom{13}{2}\). From there, there are two more outcomes. Either there are four of the first card picked and one of the second card picked or there are four of the second card picked and one of the first card pick. Then, we must consider the suits. For the denomination that has four occurrences, there is nothing to pick. But, there are four possibilities for the remaining card. This means that there are \(\binom{13}{2}\cdot2\cdot4=624\) ways to form a four of a kind.
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,A Two Pair}{twopair}
+        
+            In five card poker, a two pair is two sets of two cards of the same denomination with the remaining card being anything else. The remaining card must be of a different denomination than the previous cards. We first pick the \(3\) denominations used in the hand, which gives \(\binom{13}{3}\). Then, for each outcome, there are \(3\) ways for each denomination to go: the first set of two, the second set of two, and the lone card. We must also account for suits. For each set of two, we pick \(2\) suits from \(4\), and the lone card has four suits as possibilities. This means that there are \(\binom{13}{3}\cdot3\cdot\binom{4}{2}\cdot\binom{4}{2}\cdot4=123552\) ways to form a two pair.
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        Counting poker hands is simply one application of the tools we have discussed so far; however, it is very useful to demonstrate the concepts of probability and expected value.

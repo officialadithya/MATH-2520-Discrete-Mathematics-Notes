@@ -1,0 +1,515 @@
+\section{Lecture 15: July 21, 2022}
+
+    Natural numbers are used to solve problems in mathematics quite frequently; therefore, it is always beneficial to make discoveries about the natural numbers themselves. We now define number theory.
+    
+    \begin{definition}{\Stop\,\,Number Theory}{numtheory}
+    
+        Number theory is the study of \(\mathbb{N}\) and \(\mathbb{Z}\) with, at first, a focus on divisibility, primality, and modular arithmetic.
+    
+    \end{definition}
+    \vphantom
+    \\
+    \\
+    A critical component of number theory is the divisibility relation, a concept first seen in Example \ref{exa:divnatnum}. Here, we provide a more formal definition and a theorem.
+    \begin{definition}{\Stop\,\,Divisibility}{divisibility}
+    
+        Consider a relation \(R:\mathbb{Z}\to\mathbb{Z}\) such that for \((a,b)\in\mathbb{Z}\),
+        \begin{equation*}
+            a\sim_Rb\iff\exists k\in\mathbb{Z},b=ka.
+        \end{equation*}
+    
+    \end{definition}
+    \begin{theorem}{\Stop\,\,Divisibility \& Primality}{divisibilityprime}
+    
+        We provide the statement
+        \begin{equation*}
+            \forall p\in\mathbb{Z},1|p\wedge p|p
+        \end{equation*}
+        without proof. If \(1\) and \(p\) are the only divisors of \(p\), \(p\) is prime.
+        
+    \end{theorem}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    We now present the division algorithm.
+    \begin{theorem}{\Stop\,\,The Division Algorithm}{divalg}
+    
+        We provide the statement
+        \begin{equation*}
+            \forall(a,b)\in\mathbb{Z},\exists q,a=qb+r
+        \end{equation*}
+        where \(r\in\mathbb{Z},0\leq r<|b|\), without proof.
+    
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    Theorem \ref{thm:divalg} provides that there are only \(b\) possible remainders when dividing any integer by \(b\). If we fix the divisor \(b\), we may group integers by the remainder \(r\). Each group is called a remainder class modulo \(b\). Some sources refer to the same concept as a residue class. Consider the following example.
+    \begin{example}{\Difficulty\,\Difficulty\,\,Remainder Classes}{remclassmod}
+    
+        Describe the remainder classes modulo \(5\).
+        \\
+        \\
+        We know that there are only \(5\) remainder classes, since \(0\leq r<5\).
+        \begin{itemize}
+            \item If \(r=0\), we look for all integers divisible by \(5\). We get \(\{\ldots,-10,-5,0,5,10,\ldots\}\).
+        \end{itemize}
+        \begin{itemize}
+            \item If \(r=1\), we look for all integers, when divided by \(5\), have remainder \(1\). We get the set \(\{\ldots,-9,-4,1,6,11,\ldots\}\).
+        \end{itemize}
+        \begin{itemize}
+            \item If \(r=2\), we look for all integers, when divided by \(5\), have remainder \(2\). We get the set \(\{\ldots,-8,-3,2,7,12,\ldots\}\).
+        \end{itemize}
+        \begin{itemize}
+            \item If \(r=3\), we look for all integers, when divided by \(5\), have remainder \(3\). We get the set \(\{\ldots,-7,-2,3,8,13,\ldots\}\).
+        \end{itemize}
+        \begin{itemize}
+            \item If \(r=4\), we look for all integers, when divided by \(5\), have remainder \(4\). We get the set \(\{\ldots,-6,-1,4,9,14,\ldots\}\).
+        \end{itemize}
+        
+    \end{example}
+    \vphantom
+    \\
+    \\
+    These remainder classes are actually equivalence classes for the following equivalence relation.
+    \begin{definition}{\Stop\,\,Congruence}{cong}
+    
+        Consider a relation \(R:\mathbb{Z}\to\mathbb{Z}\) such that for \((a,b)\in\mathbb{Z}\),
+        \begin{equation*}
+            a\equiv b \pmod n
+        \end{equation*}
+        if and only if \(a\) and \(b\) are seen in the same remainder class modulo \(n\). That is, \(a\) and \(b\) have the same remainder when divided by \(n\).
+    
+    \end{definition}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    In the construction of Definition \ref{def:cong}, we used Theorem \ref{thm:equivrelpart}. Consider the following exercise.
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Defining Congruence}{defcong}
+    
+        Many sources define congruence in a different manner. Prove that the definition provided in Definition \ref{def:cong} is equivalent to the following alternate definition of congruence:
+        \begin{equation*}
+            a\equiv b \pmod n \iff n|a-b.
+        \end{equation*}
+        \begin{proof}
+            Definition \ref{def:cong} essentially means for integers \(a\) and \(b\), 
+            \begin{equation*}
+                a=q_1n+r, \quad b=q_2n+r.
+            \end{equation*}
+            When we subtract \(b\) from \(a\), we obtain
+            \begin{equation*}
+                a-b=q_1n+r-q_2n-r=n(q_1-q_2).
+            \end{equation*}
+            This means that \(n|a-b\). We have proved \(a\equiv b \pmod n \implies n|a-b\). Now, we wish to show that \(n|a-b\implies a\equiv b\pmod n\). We recognize that 
+            \begin{equation*}
+                a-b=kn
+            \end{equation*}
+            for some integer \(k\). If we divide both sides by \(n\), the right hand side will have zero remainder. On the left hand side, \(a\) will have some remainder, and \(b\) will have some remainder. But because the right hand side has zero remainder, the remainders of \(a\) and \(b\) must be the same. Therefore, 
+            \begin{equation*}
+                (a\equiv b \pmod n \implies n|a-b)\wedge(n|a-b\implies a\equiv b\pmod n)
+            \end{equation*}
+            which means
+            \begin{equation*}
+                a\equiv b \pmod n \iff n|a-b.
+            \end{equation*}
+            That is, both definitions are equal.
+        \end{proof}
+    
+    \end{exercise}
+    \vphantom
+    \\
+    \\
+    If Exercise \ref{exe:defcong}, we used the equation \(a-b=kn\). This, when rewritten as \(a=b+kn\), provides us a helpful tool to convert between congruences and regular equations and vice versa. We will now provide a theorem about arithmetic with congruences.
+    \begin{theorem}{\Stop\,\,Congruence and Arithmetic}{congarith}
+    
+        Suppose \((a\equiv b\pmod n)\wedge (c\equiv \pmod n)\). Then,
+        \begin{itemize}
+            \item \(a+c\equiv b+d\pmod n\).
+            \item \(a-c\equiv b-d\pmod n\).
+            \item \(ac\equiv bc\pmod n\).
+        \end{itemize}
+    
+    \end{theorem}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    This allows us to, essentially, replace every number in a congruence with any other number it is congruent to. Consider the following exercises.
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Find the Remainder 1}{findrem1}
+    
+        Find the remainder of \(3491\) divided by \(9\). 
+        \\
+        \\
+        This is equivalent to solving
+        \begin{align*}
+            x&\equiv3491\pmod 9 \\
+            &\equiv 3000+400+90+1\pmod 9.
+        \end{align*}
+        We know that \(90\equiv 0\pmod9\), so we may replace \(90\) with \(0\). We also know that \(400=4(100)\) and \(100\equiv1\pmod9\). This means we can replace \(400\) with \(4(1)=4\). Similarly, we can replace \(3000\) with \(3(1)=3\) because \(3000=3(1000)\) and \(1000\equiv1\pmod9\).
+        That means
+        \begin{align*}
+            x&\equiv 3+4+0+1\pmod 9 \\
+            &\equiv 8\pmod 9.
+        \end{align*}
+        That is, the remainder of \(3491\) divided by \(9\) is \(8\).
+    
+    \end{exercise}
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Find the Remainder 2}{findrem2}
+    
+        Find the remainder of \(3^{123}\) divided by \(7\). 
+        \\
+        \\
+        This is equivalent to solving
+        \begin{align*}
+            x&\equiv3^{123}\pmod7\\
+            &\equiv (3^3)^{41} \\
+            &\equiv 27^{41}.
+        \end{align*}
+        We know that \(27\equiv 6\pmod7\), so 
+        \begin{equation*}
+            x\equiv6^{41}\pmod 7.
+        \end{equation*}
+        We also know \(6^2=36\) is congruent to \(1\) modulo \(7\), so
+        \begin{align*}
+            x&\equiv6(6^2)^{20}\pmod7 \\
+            &\equiv 6(1^{20})\pmod 7.
+        \end{align*}
+        Therefore, 
+        \begin{equation*}
+            x\equiv 6\pmod7.
+        \end{equation*}
+        That is, the remainder of \(3^{123}\) divided by \(7\) is \(6\).
+    
+    \end{exercise}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    We now note that even if \(ad\equiv bd\pmod n\), we cannot conclude that \(a\equiv b\pmod n\). For example, while \(18\equiv42\pmod8\), \(3\nequiv7\pmod8\). Instead, we present the following theorem.
+    \begin{theorem}{\Stop\,\,Congruence and Division}{congdiv}
+    
+        Suppose \(ad\equiv bd \pmod n\). Then,
+        \begin{equation*}
+            a\equiv b\pmod{n(\gcd{d}{n})^{-1}}
+        \end{equation*}
+    
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    We will now take a break from the language of congruences and turn to solving linear Diophantine equations, defined below.
+    \begin{definition}{\Stop\,\,Diophantine Equations}{diophantine}
+        An equation in two or more variables is called a Diophantine equation if only integer solutions are of interest. A linear Diophantine equation takes the form
+        \begin{equation*}
+            a_1x_1+a_2x_2+\cdots+a_nx_n=b
+        \end{equation*}
+        for constants \(a_1,\ldots,a_n,b\). A solution to a Diophantine equation is a solution to the equation consisting only of integers.
+    \end{definition}
+    \vphantom
+    \\
+    \\
+    To solve linear Diophantine equations, we will use the Euclidean Algorithm, Bezout's Identity, and the Extended Euclidean Algorithm, shown below.
+    \begin{theorem}{\Stop\,\,The Euclidean Algorithm}{euclidalg}
+    
+        For two integers, \(a\) and \(b\) where \(a\geq b\), the Euclidean Algorithm can be stated as
+        \begin{equation*}
+            \gcd{a}{b}=\begin{cases}
+                a & b = 0 \\
+                \gcd{b}{a\bmod b} & b \neq 0.
+            \end{cases}
+        \end{equation*}
+    
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    It may be difficult to understand the Euclidean Algorithm, but often, writing an implementation assists. Consider the following exercise.
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Euclidean in Python}{py}
+    
+        Write a function to implement the Euclidean Algorithm in Python.
+        \begin{center}
+            \lstinputlisting[language=Python]{Graphics/gcd.py}
+        \end{center}
+    
+    \end{exercise}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    We will now provide a few computational exercises.
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Euclidean 1}{compeuclid1}
+    
+        Find \(\gcd{254}{32}\).
+        \\
+        \\
+        By the Euclidean Algorithm,
+        \begin{align*}
+            \gcd{254}{32}&=\gcd{32}{30} \\
+            &=\gcd{30}{2} \\
+            &=\gcd{2}{0} \\
+            &=2.
+        \end{align*}
+        We may also write this as
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(254\) & \(7\) & \(32\) & \(30\) \\
+                \(1\) & \(32\) & \(1\) & \(30\) & \(2\) \\
+                \(2\) & \(30\) & \(15\) & \(2\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        
+    \end{exercise}
+    
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Euclidean 2}{compeuclid2}
+    
+        Find \(\gcd{254}{32}\).
+        \\
+        \\
+        By the Euclidean Algorithm,
+        \begin{align*}
+            \gcd{74}{383}&=\gcd{383}{74} \\
+            &=\gcd{74}{13} \\
+            &=\gcd{13}{9} \\
+            &=\gcd{9}{4} \\
+            &=\gcd{4}{1} \\
+            &=\gcd{1}{0} \\
+            &=1.
+        \end{align*}
+        We may also write this as
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(383\) & \(5\) & \(74\) & \(13\) \\
+                \(1\) & \(74\) & \(5\) & \(13\) & \(9\) \\
+                \(2\) & \(13\) & \(1\) & \(9\) & \(4\) \\
+                \(3\) & \(9\) & \(2\) & \(4\) & \(1\) \\
+                \(4\) & \(4\) & \(4\) & \(1\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+    
+    \end{exercise}
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Euclidean 3}{compeuclid3}
+    
+        Find \(\gcd{7544}{115}\).
+        \\
+        \\
+        By the Euclidean Algorithm,
+        \begin{align*}
+            \gcd{7544}{115}&=\gcd{115}{69} \\
+            &=\gcd{69}{46} \\
+            &=\gcd{46}{23} \\
+            &=\gcd{23}{0} \\
+            &=23.
+        \end{align*}
+        We may also write this as
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(7544\) & \(65\) & \(115\) & \(69\) \\
+                \(1\) & \(115\) & \(1\) & \(69\) & \(46\) \\
+                \(2\) & \(69\) & \(1\) & \(46\) & \(23\) \\
+                \(3\) & \(46\) & \(2\) & \(23\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+    
+    \end{exercise}
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Euclidean 4}{compeuclid4}
+    
+        Find \(\gcd{687}{24}\).
+        \\
+        \\
+        By the Euclidean Algorithm,
+        \begin{align*}
+            \gcd{687}{24}&=\gcd{24}{15} \\
+            &=\gcd{15}{9} \\
+            &=\gcd{9}{6} \\
+            &=\gcd{6}{3} \\
+            &=\gcd{3}{0} \\
+            &=3.
+        \end{align*}
+        We may also write this as
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(687\) & \(28\) & \(24\) & \(15\) \\
+                \(1\) & \(24\) & \(1\) & \(15\) & \(9\) \\
+                \(2\) & \(15\) & \(1\) & \(9\) & \(6\) \\
+                \(3\) & \(9\) & \(1\) & \(6\) & \(3\) \\
+                \(4\) & \(6\) & \(2\) & \(3\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+    
+    \end{exercise}
+    \pagebreak
+    \vphantom
+    \\
+    \\
+    Now that we have some experience using the Euclidean Algorithm, we present B\'ezout's Lemma and the Extended Euclidean Algorithm.
+    \begin{theorem}{\Stop\,\,B\'ezout's Lemma}{bezout}
+        
+        Let \(a\) and \(b\) be integers or polynomial such that \(\gcd{a}{b}=d\). Then, there exist integers \(x\) and \(y\) such that
+        \begin{equation*}
+            ax+by=d.
+        \end{equation*}
+        
+    \end{theorem}
+    \begin{theorem}{\Stop\,\,The Extended Euclidean Algorithm}{exteuclidalg}
+        
+        The integers \(x\) and \(y\) given in Theorem \ref{thm:bezout} may be found by solving
+        \begin{equation*}
+            a_{n-1}=q_{n-1}b_{n-1}+r_{n-1}
+        \end{equation*}
+        for \(r_n\), then making substitutions to form a linear combination of \(a\) and \(b\).
+    \end{theorem}
+    \vphantom
+    \\
+    \\
+    To apply Theorem \ref{thm:exteuclidalg}, it will be much easier to use the tabular approach shown in Exercises \ref{exe:compeuclid1}, \ref{exe:compeuclid2}, \ref{exe:compeuclid3}, and \ref{exe:compeuclid4}. Consider the following exercises.
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Extended Euclidean 1}{compexteuclid1}
+    
+        Find an integer solution to
+        \begin{equation*}
+            81x+14y=1.
+        \end{equation*}
+        We start by using the Euclidean Algorithm to obtain the table
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(81\) & \(5\) & \(14\) & \(11\) \\
+                \(1\) & \(14\) & \(1\) & \(11\) & \(3\) \\
+                \(2\) & \(11\) & \(3\) & \(3\) & \(2\) \\
+                \(3\) & \(3\) & \(1\) & \(2\) & \(1\) \\
+                \(4\) & \(2\) & \(2\) & \(1\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Then, we solve for \(r_{n-1}\) and traverse the table upwards, producing
+        \begin{align*}
+            1&=3-2 \\
+            &=3-(11-3\cdot3) \\
+            &=3-11+3\cdot3 \\
+            &=4\cdot3-11 \\
+            &=4\cdot(14-11)-(81-5\cdot14) \\
+            &=4\cdot(14-(81-5\cdot14))-(81-5\cdot14) \\
+            &=4\cdot(-81-9\cdot14)-81+5\cdot14 \\
+            &=-4\cdot81-36\cdot14-81+5\cdot14 \\
+            &=-5\cdot81-29\cdot14.
+        \end{align*}
+        Therefore, \(x=-5\) and \(y=29\).
+    
+    \end{exercise}
+    \vphantom
+    \\
+    \\
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Extended Euclidean 2}{compexteuclid2}
+    
+        Find an integer solution to
+        \begin{equation*}
+            1398x+324y=6.
+        \end{equation*}
+        We start by using the Euclidean Algorithm to obtain the table
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(1398\) & \(4\) & \(324\) & \(102\) \\
+                \(1\) & \(324\) & \(3\) & \(102\) & \(18\) \\
+                \(2\) & \(102\) & \(5\) & \(18\) & \(12\) \\
+                \(3\) & \(18\) & \(1\) & \(12\) & \(6\) \\
+                \(4\) & \(12\) & \(2\) & \(6\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Then, we solve for \(r_{n-1}\) and traverse the table upwards, producing
+        \begin{align*}
+            6&=18-12 \\
+            &=18-102+5\cdot18 \\
+            &=324-3\cdot102-102+5(324-3\cdot102) \\
+            &=324-4\cdot102+5\cdot324-15\cdot102 \\
+            &=6\cdot324-19\cdot102 \\
+            &=6\cdot324-19(1398-4\cdot324) \\
+            &=6\cdot324-19\cdot1398+76\cdot324 \\
+            &=82\cdot324-19\cdot1398.
+        \end{align*}
+        Therefore, \(x=-19\) and \(y=82\).
+    
+    \end{exercise}
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Extended Euclidean 3}{compexteuclid3}
+    
+        Find an integer solution to
+        \begin{equation*}
+            1398x+324y=60.
+        \end{equation*}
+        We first solve 
+        \begin{equation*}
+            1398x+324y=6,
+        \end{equation*}
+        which, coincidentally, was the result of Exercise \ref{exe:compexteuclid2}. We see that for this equation, \(x=-19\) and \(y=82\). That is,
+        \begin{equation*}
+            6=-19\cdot1398+82\cdot324.
+        \end{equation*}
+        We multiply both sides by \(10\) to produce
+        \begin{equation*}
+            60=-190\cdot1398+820\cdot324.
+        \end{equation*}
+        Therefore, the solution to the original equation is \(x=-190\) and \(y=820\).
+    
+    \end{exercise}
+    \begin{exercise}{\Difficulty\,\Difficulty\,\,Computational Extended Euclidean 4}{compexteuclid4}
+    
+        Find an integer solution to
+        \begin{equation*}
+            6x+10y=32
+        \end{equation*}
+        We start by using the Euclidean Algorithm to obtain the table
+        \begin{center}
+            \begin{tabular}{c|c|c|c|c}
+                \hline
+                \(n\) & \(a_n\) & \(q_n\) & \(b_n\) & \(r_n\) \\
+                \hline
+                \(0\) & \(10\) & \(1\) & \(6\) & \(4\) \\
+                \(1\) & \(6\) & \(1\) & \(4\) & \(2\) \\
+                \(2\) & \(4\) & \(2\) & \(2\) & \(0\) \\
+                \hline
+            \end{tabular}.
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Then, we solve for \(r_{n-1}\) and traverse the table upwards, producing
+        \begin{align*}
+            2&=6-4 \\
+            &=6-10+6 \\
+            &=2\cdot6-10.
+        \end{align*}
+        We now multiply both sides by \(16\) to see that
+        \begin{equation*}
+            32=32\cdot6-16\cdot10.
+        \end{equation*}
+        Therefore, \(x=32\) and \(y=-16\).
+    
+    \end{exercise}

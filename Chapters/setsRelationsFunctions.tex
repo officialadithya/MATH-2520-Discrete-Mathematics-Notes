@@ -1,0 +1,1098 @@
+\section{Lecture 5, June 14, 2022}
+
+    \subsection{An Introduction to Sets}
+    
+        We will first define a set.
+        \begin{definition}{\Stop\,\,Sets}{sets}
+        
+            A set is an unordered collection of distinct objects.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        We use curly braces to enclose elements of sets. For example, \(A=\{1,2,3\}\) means that \(A\) is a set containing the elements \(1\), \(2\), and \(3\). We also use \(\in\) to mean ``is an element of.'' For example, \(1\in A\). Similarly we use \(\nin\) to mean ``is not an element of.'' For example, \(4\nin A\). 
+        \\
+        \\
+        Sometimes, simply listing the elements of a set is difficult. For example, let the set of all even natural numbers be \(B\). The set \(B\) has infinitely many elements, so we may write
+        \begin{equation*}
+            B=\{n\in\mathbb{N}:\exists k\in\mathbb{N}, n=2k\}.
+        \end{equation*}
+        The above is read as ``\(B\) is the set of natural numbers \(n\), such that there exists a natural number \(k\) such that \(n=2k\). This notation is \textit{set builder notation}. 
+        \pagebreak
+        \\
+        \\
+        We now define the following special sets.
+        \begin{definition}{\Stop\,\,Special Sets}{specsets}
+        
+            The set \(\emptyset\) is the set which contains no elements.
+            \\
+            \\
+            The set \(\mathcal{U}\) is the set of all elements.
+            \\
+            \\
+            The set \(\mathbb{N}\) is the set of all natural numbers.
+            \\
+            \\
+            The set \(\mathbb{Z}\) is the set of all integers.
+            \\
+            \\
+            The set \(\mathbb{Q}\) is the set of all rational numbers.
+            \\
+            \\
+            The set \(\mathbb{R}\) is the set of all real numbers.
+            \\
+            \\
+            The set \(\mathbb{C}\) is the set of all complex numbers.
+            \\
+            \\
+            The set \(\mathcal{P}(A)\), the power set of \(A\), is the set of all subsets of \(A\).
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        We will also define the following notation.
+        \begin{definition}{\Stop\,\,Set Theory Notation}{setnot}
+        
+            The statement \(A\subseteq B\) asserts that \(A\) is a subset of \(B\). That is, every element of \(A\) is also an element of \(B\).
+            \\
+            \\
+            The statement \(A\subset B\) asserts that \(A\) is a proper subset of \(B\). That is, every element of \(A\) is also an element of \(B\) and \(A\neq B\).
+            \\
+            \\
+            The operation \(A\cap B\) is the intersection of \(A\) and \(B\), or the set containing all elements that are elements of both \(A\) and \(B\).
+            \\
+            \\
+            The operation \(A\cup B\) is the union of \(A\) and \(B\), or the set containing all elements that are elements of \(A\) or \(B\) or both.
+            \\
+            \\
+            The operation \(A\times B\) is the Cartesian product of \(A\) and \(B\), or the set of all ordered pairs \((a,b)\), such that \(a\in A\) and \(b\in B\).
+            \\
+            \\
+            The operation \(A\backslash B\) is the set difference between \(A\) and \(B\), or the set containing all elements of \(A\) which are not elements of \(B\).
+            \\
+            \\
+            The operation \(\overline{A}\) is the complement of \(A\), or the set of everything that is not an element of \(A\).
+            \\
+            \\
+            The operation \(|A|\) is the cardinality of \(A\), or the number of elements in \(A\).
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Set Statements}{setsta}
+    
+            Let \(A=\{1,2,3,4,5,6\}\), \(B=\{2,4,6\}\), \(C=\{1,2,3\}\), and \(D=\{7,8,9\}\). Complete the table
+            \begin{center}
+                \begin{tabular}{c|c}
+                    \hline
+                    Statement & Validity \\
+                    \hline
+                    \(A\subset B\) & F \\
+                    \(B\subset A\) & T \\
+                    \(B\in C\) & F \\
+                    \(\emptyset \in A\) & F \\
+                    \(\emptyset \subset A\) & T \\
+                    \(3\in C\) & T \\
+                    \(\{3\}\subset C\) & T \\
+                    \hline
+                \end{tabular}.
+            \end{center}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Power Sets}{powset}
+    
+            Let \(A=\{1,2,3\}\). Find \(\mathcal{P}(A)\).
+            \\
+            \\
+            The set \(\mathcal{P}(A)\) is the set of all subsets of \(A\). That is,
+            \begin{equation*}
+                \mathcal{P}(A)=\{\emptyset,\{1\},\{2\},\{3\},\{1,2\},\{2,3\},\{1,3\},\{1,2,3\}\}
+            \end{equation*}
+            Note that \(\{1,2,3\}\in\powerset{A}\), as \(\powerset{A}\) includes non-proper subsets.
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        Consider the following theorem related to a set \(A\) and its power set \(\powerset{A}\).
+        \begin{theorem}{\Stop\,\,Cardinality of a Power Set}{cardinalitypowerset}
+        
+            Given a set \(A\), \(|\powerset{A}|=2^{|A|}\).
+        
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Set Operations}{setops}
+        
+            Let \(A=\{1,2,3,4,5,6\}\), \(B=\{2,4,6\}\), \(C=\{1,2,3\}\), and \(D=\{7,8,9\}\). Complete the table
+            \begin{center}
+                \begin{tabular}{c|c}
+                    \hline
+                    Operation & Result \\
+                    \hline
+                    \(A\cup B\) & \(A\) \\
+                    \(B\cap A\) & \(B\) \\
+                    \(B\cap C\) & \(\{2\}\) \\
+                    \(A\cap D\) & \(\emptyset\) \\
+                    \(\overline{B\cup C}\) & \(\{5,7,8,9,10\}\) \\
+                    \(A\backslash B\) & \(\{1,3,5\}\)\\
+                    \((D\cap\overline{C})\cup(\overline{A\cap B)}\) & \(\{1,3,5,7,8,9,10\}\) \\
+                    \(\emptyset \cup C\) & \(C\)\\
+                    \(\emptyset \cap C\) & \(\emptyset\)\\
+                    \hline
+                \end{tabular}.
+            \end{center}
+            
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        We see that \(\cup\) and \(\cap\) behave similarly to \(\vee\) and \(\wedge\), respectively. We formally relate these operations in the following theorem.
+        \begin{theorem}{Unions are Disjunctions and Intersections are Conjunctions}{uidc}
+        
+            Given two sets \(A\) and \(B\),
+            \begin{equation*}
+                x\in A\cup B\iff (x\in A)\vee(x\in B),
+            \end{equation*}
+            \begin{equation*}
+                x\in A\cap B\iff (x\in A)\wedge(x\in B),
+            \end{equation*}
+            and
+            \begin{equation*}
+                x\in\overline{A}\iff\neg(x\in A).
+            \end{equation*}
+        
+        \end{theorem}
+        
+    \pagebreak
+        
+\section{Lecture 6: June 16, 2022}
+        
+    \subsection{Relations}
+        
+        Although we briefly covered Cartesian products in the previous section, here we state a more mathematical definition. If \(A\) and \(B\) are sets,
+        \begin{equation*}
+            A\times B=\{(a,b):a\in A\wedge b\in B\}.
+        \end{equation*}
+        We provide the following definition of a relation between two sets.
+        \begin{definition}{\Stop\,\,Relations}{relations}
+        
+            A relation between two sets \(A\) and \(B\) is a subset of their Cartesian product. If the relation is \(R\), 
+            \begin{equation*}
+                R\subseteq A\times B.
+            \end{equation*}
+            If \((a,b)\in R\), with \(a\in A\wedge b\in B\), we write \(a\sim_R b\).
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Often, we consider a special case of Definition \ref{def:relations}.
+        \begin{definition}{\Stop\,\,A Special Relation}{specrel}
+        
+            A relation \(R\) on a set \(A\) is a relation from \(A\) to itself. That is, 
+            \begin{equation*}
+                R\subseteq A\times A,
+            \end{equation*}
+            and for if \((a_1,a_2)\in R\), with \(a_1\in A\wedge a_2\in A\), we write \(a_1\sim_Ra_2\).
+        
+        \end{definition}
+        %\pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Divisibility of the Natural Numbers}{divnatnum}
+        
+            Let \(R\) represent divisibility, and let \(A=\mathbb{N}\). For \((a,b)\in\mathbb{N}\),
+            \begin{equation*}
+                a\sim_Rb\iff\exists k\in\mathbb{N},b=ka.
+            \end{equation*}
+            That is,
+            \begin{equation*}
+                a|b\iff\exists k\in\mathbb{N},b=ka.
+            \end{equation*}
+            Consider the following diagram.
+            \begin{center}
+        \begin{tikzpicture}[
+            >=stealth,
+            bullet/.style={
+              fill=black,
+              circle,
+              minimum width=1pt,
+              inner sep=1pt
+            },
+            projection/.style={
+              ->,
+              thick,
+              shorten <=2pt,
+              shorten >=2pt
+            },
+            every fit/.style={
+              ellipse,
+              draw,
+              inner sep=0pt
+            },
+            scale=0.5
+            ]
+            \node[bullet,label=above:\(\mathbb{N}\)] (A) at (0,-1) {};
+            \node[bullet,label=above:\(\mathbb{N}\)] (B) at (4,-1) {};
+            \node[bullet,label=below:\(\vdots\)] (aEND) at (0,-7) {};
+            \node[bullet,label=below:\(\vdots\)] (bEND) at (4,-7) {};
+            \foreach \y/\l in {1/0,2/1,3/2,4/3,5/4,6/5,7/6}
+              \node[bullet,label=left:$\l$] (a\y) at (0,-1*\y) {};
+        
+            \foreach \y/\l in {1/0,2/1,3/2,4/3,5/4,6/5,7/6}
+              \node[bullet,label=right:$\l$] (b\y) at (4,-1*\y) {};
+        
+            \node[draw,fit=(a1) (a2) (a3) (a4) (a5) (a6) (a7) (aEND), minimum width=2cm] {} ;
+            \node[draw,fit=(b1) (b2) (b3) (b4) (b5) (b6) (b7) (bEND), minimum width=2cm] {} ;
+        
+            \draw[projection] (a1) -- (b1);
+            \draw[projection] (a2) -- (b1);
+            \draw[projection] (a2) -- (b2);
+            \draw[projection] (a2) -- (b3);
+            \draw[projection] (a2) -- (b4);
+            \draw[projection] (a2) -- (b5);
+            \draw[projection] (a2) -- (b6);
+            \draw[projection] (a2) -- (b7);
+            \draw[projection] (a3) -- (b1);
+            \draw[projection] (a3) -- (b3);
+            \draw[projection] (a3) -- (b5);
+            \draw[projection] (a3) -- (b7);
+            \draw[projection] (a4) -- (b1);
+            \draw[projection] (a4) -- (b4);
+            \draw[projection] (a4) -- (b7);
+            \draw[projection] (a5) -- (b1);
+            \draw[projection] (a5) -- (b5);
+            \draw[projection] (a6) -- (b1);
+            \draw[projection] (a6) -- (b6);
+            \draw[projection] (a7) -- (b1);
+            \draw[projection] (a7) -- (b7);
+        \end{tikzpicture}
+        \end{center}
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We now consider various properties of relations. Consider the following.
+        \begin{itemize}
+            \item \(R:A\to B\) is \textit{reflexive} if and only if \(\forall a\in A, a\sim_Ra\)
+            \item \(R:A\to B\) is \textit{symmetric} if and only if \(\forall (a,b)\in A,a\sim_Rb\implies b\sim_Ra\).
+            \item \(R:A\to B\) is \textit{transitive} if and only if \(\forall (a,b,c)\in A, (a\sim_Rb\wedge b\sim_Rc)\implies a\sim_Rc\).
+            \item \(R:A\to B\) is \textit{asymmetric} if and only if \(\forall (a,b)\in A, a\sim_Rb\implies b\nsim_Ra\).
+            \item \(R:A\to B\) is \textit{antisymmetric} if and only if \(\forall (a,b)\in A, (a\sim_Rb\wedge b\sim_Ra)\implies a=b\).
+        \end{itemize}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Properties of a Relation}{proprel}
+        
+            Consider the relation \(R:\mathbb{Z}\to\mathbb{Z}\) given by \(a\sim_Rb\iff a<b+1\).
+            \begin{itemize}
+                \item \(R\) is reflexive, \(\forall a\in\mathbb{Z},a\sim_Ra\).
+                \item \(R\) is not symmetric, \(\exists (a,b)\in\mathbb{Z},a\sim_Rb\wedge b\nsim_Ra\).
+                \item \(R\) is transitive, \(\forall (a,b,c)\in\mathbb{Z},(a\sim_Rb\wedge b\sim_Rc)\implies a\sim_Rc\).
+                \begin{itemize}
+                    \item Note that if the same relation were on \(\mathbb{R}\times\mathbb{R}\), it would not be transitive. Consider the counterexample \(a=1\), \(b=\frac{1}{2}\), and \(c=0\).
+                \end{itemize}
+                \item \(R\) is not asymmetric, \(\exists(a,b)\in A,a\sim_Rb\wedge b\sim_Ra\).
+                \item \(R\) is antisymmetric, \(\forall(a,b)\in A, (a\sim_Rb\wedge b\sim_Ra)\implies a=b\).
+            \end{itemize}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We may use the properties of relations to define equivalence relations and equivalence classes. Consider the following definition.
+        \begin{definition}{\Stop\,\,Equivalence Relations}{equivrel}
+        
+            A relation \(R\) on a set \(A\) is an equivalence relation on \(A\) if and only if \(R\) is reflexive, symmetric, and transitive.
+        
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        To see how frequently equivalence relations are used, define the set \(F\) to be
+       \begin{equation*}
+           F=\left\{\frac{m}{n}:(m,n)\in\mathbb{Z},n\neq0\right\}.
+       \end{equation*}
+        Note that this set is not \(\mathbb{Q}\), but instead, the set of all possible distinct fractions. For example, both \(\frac{1}{2}\), and \(\frac{2}{4}\) are elements of \(F\).
+        \\
+        \\
+        Define a relation \(\doteq\) on \(F\), we say that \(\frac{a}{b}\doteq\frac{c}{d}\) if \(ad=bc\). We have defined the relation \(\doteq\) such that \(\frac{a}{b}\doteq\frac{c}{d}\) if and only if \(\frac{a}{b}\) and \(\frac{c}{d}\) are equal. We note that \(\doteq\) is an equivalence relation. 
+        \begin{proof}
+            For all \(\frac{a}{b}\in F\), the equation \(ab=ab\) means that \(\frac{a}{b}\doteq\frac{a}{b}\). Therefore, \(\doteq\) is reflexive.
+            \\
+            \\
+            For all \(\left(\frac{a}{b},\frac{c}{d}\right)\in F\), suppose that \(\frac{a}{b}\doteq\frac{c}{d}\). This means that \(ad=bc\), so \(cb=da\). This implies that \(\frac{c}{d}\doteq\frac{a}{b}\). Therefore, \(\doteq\) is symmetric.
+            \\
+            \\
+            For all \(\left(\frac{a}{b},\frac{c}{d},\frac{e}{f}\right)\), suppose that \(\frac{a}{b}\doteq\frac{c}{d}\), meaning that \(ad=bc\). Then, suppose that \(\frac{c}{d}\doteq\frac{e}{f}\), meaning that \(cf=de\). We wish to show that \(\frac{a}{b}\doteq\frac{e}{f}\). That is, we wish to show that \(af=be\). We multiply the first two equations, producing \(adcf=bcde\). As we see that \(cd\) is on both sides, we see that \(af=be\). Therefore, \(\doteq\) is transitive.
+        \end{proof}
+        \vphantom
+        \\
+        \\
+        Any distinct rational number is contained in an equivalence class. For example, the equivalence class containing \(\frac{2}{3}\) is the set \(\left\{\frac{2n}{3n}\right\}:n\in\mathbb{Z},n\neq0\) of all fractions numerically equal to \(\frac{2}{3}\).
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Properties of a Relation 1}{proprel1}
+        
+            Consider the relation \(R:\mathbb{R}^2\to\mathbb{R}^2\) given by \((x_1,y_1)\sim_R(x_2,y_2)\iff x_1^2+y_1^2=x_2^2+y_2^2\).
+            \begin{itemize}
+                \item \(R\) is reflexive, \(\forall (x_1,y_1)\in\mathbb{R}^2, (x_1,y_1)\sim_R(x_1,y_1)\).
+                \item \(R\) is symmetric, \(\forall ((x_1,y_1), (x_2,y_2))\in\mathbb{R}^2, (x_1,y_1)\sim_R(x_2,y_2)\implies (x_2,y_2)\sim_R(x_1,y_1)\).
+                \item \(R\) is transitive, \(\forall ((x_1,y_1), (x_2,y_2), (x_3,y_3))\in\mathbb{R}^2, ((x_1,y_1)\sim_R(x_2,y_2)\wedge (x_2,y_2)\sim_R(x_3,y_3))\implies(x_1,y_1)\sim_R(x_3,y_3)\).
+                \item \(R\) is not asymmetric, \(\exists ((x_1,y_1), (x_2,y_2))\in\mathbb{R}^2,(x_1,y_1)\sim_R(x_2,y_2)\wedge(x_2,y_2)\sim_R(x_1,y_1)\).
+                \item \(R\) is not antisymmetric, \(\exists ((x_1,y_1), (x_2,y_2))\in\mathbb{R}^2,((x_1,y_1)\sim_R(x_2,y_2)\wedge(x_2,y_2)\sim_R(x_1,y_1))\wedge((x_1,y_1)\neq(x_2,y_2))\).
+                \item \(R\) is an equivalence relation.
+            \end{itemize}
+        
+        \end{exercise}
+        \pagebreak
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Properties of a Relation 2}{proprel2}
+        
+            Consider the relation \(R:A\to A\), where \(A\) is the set of infinitely differentiable functions on \(\mathbb{R}\), given by \(f\sim_Rg\iff f'(x)=g'(x)\).
+            \begin{itemize}
+                \item \(R\) is reflexive, \(\forall f\in A, f\sim_Rf\).
+                \item \(R\) is symmetric, \(\forall (f, g)\in A, f\sim_Rg\implies g\sim_Rf\).
+                \item \(R\) is transitive, \(\forall (f, g, h)\in A, (f\sim_Rg\wedge g\sim_Rh)\implies f\sim_Rh\).
+                \item \(R\) is not asymmetric, \(\exists (f, g)\in A,f\sim_Rg\wedge g\sim_Rf\).
+                \item \(R\) is not antisymmetric, \(\exists (f, g)\in A,(f\sim_Rg\wedge g\sim_Rf)\wedge(f\neq g)\).
+                \item \(R\) is an equivalence relation.
+            \end{itemize}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Properties of a Relation 3}{proprel3}
+        
+            Consider the relation \(R:A\to A\), where \(A\) is the set of all triangles in the plane. Triangle \(T_1\) is related to Triangle \(T_2\) if and only if \(\triangle T_1\) has at least one side equal to a side of \(\triangle T_2\).
+            \begin{itemize}
+                \item \(R\) is reflexive, \(\forall T_1\in A, T_1\sim_RT_1\).
+                \item \(R\) is symmetric, \(\forall (T_1, T_2)\in A, T_1\sim_RT_2\implies T_2\sim_RT_1\).
+                \item \(R\) is not transitive, \(\exists (T_1, T_2, T_3)\in A, (T_1\sim_RT_2\wedge T_2\sim_RT_3)\wedge T_1\nsim_RT_3\).
+                \item \(R\) is not asymmetric, \(\exists (T_1, T_2)\in A,T_1\sim_RT_2\wedge T_2\sim_RT_1\).
+                \item \(R\) is not antisymmetric, \(\exists (T_1, T_2)\in A,(T_1\sim_RT_2\wedge T_2\sim_RT_1)\wedge(T_1\neq T_2)\).
+                \item \(R\) is not an equivalence relation.
+            \end{itemize}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Properties of a Relation 4}{proprel4}
+        
+            Consider the relation \(R:A\to A\), where \(A\) is the set of all sets. Sets \(S_1\) and \(S_2\) are related if and only if \(S_1\subseteq S_2\).
+            \begin{itemize}
+                \item \(R\) is reflexive, \(\forall S_1\in A, S_1\sim_RS_1\).
+                \item \(R\) is not symmetric, \(\exists (S_1,S_2)\in A, S_1\sim_RS_2\wedge S_2\nsim_RS_1\).
+                \item \(R\) is transitive, \(\forall (S_1, S_2, S_3)\in A, (S_1\sim_RS_2\wedge S_2\sim_RS_3)\implies S_1\sim_RS_3\).
+                \item \(R\) is not asymmetric, \(\exists (S_1, S_2)\in A,S_1\sim_RS_2\wedge S_2\sim_RS_1\).
+                \item \(R\) is antisymmetric, \(\forall (S_1, S_2)\in A,(S_1\sim_RS_2\wedge S_2\sim_RS_1)\implies(S_1 = S_2)\).
+                \item \(R\) is not an equivalence relation.
+            \end{itemize}
+        
+        \end{exercise}
+
+\section{Lecture 7: June 21, 2022}
+
+    \subsection{Partitions}
+    
+        We begin by stating the following definitions.
+        \begin{definition}{\Stop\,\,Partitions}{partition}
+        
+           A partition of a set \(A\) is a collection of subsets of \(A\), \(A_1\), \(A_2\), \(\ldots\), \(A_n\) such that
+           \begin{equation*}
+               \underbrace{\left(A=\bigcup_{i=1}^n A_i\right)}_{A=A_1\cup A_2\cup \cdots \cup A_n}\wedge(A_i\cap A_j=\emptyset),
+           \end{equation*}
+           where \(i\neq j\). That is, \(A\) is the union of the disjoint sets \(A\), \(A_1\), \(A_2\), \(\ldots\), \(A_n\).
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following example of a \(5\)-part partition.
+        \begin{center}
+            \begin{tikzpicture}[scale=2]
+                \node[label=315:{\(\mathcal{U}\)}] at (0,3) {};
+                \draw (0,0) rectangle (5,3);
+                \node[ellipse, draw, minimum width=8cm, minimum height=4cm] (e) at (2.5,1.5) {\HUGE\(\mathbf{A}\)};
+                \draw (0.89,0.907) -- (1.59,2.39);
+                \draw (1.5,2.2) -- (2.5,0.5);
+                \draw (2.11,1.163) -- (3,2.468);
+                \draw (2.56,1.823) -- (4.5,1.5);
+                \node[label=0:{\(A_1\)}] at (0.6,1.5) {};
+                \node[label=0:{\(A_2\)}] at (1.3,1.2) {};
+                \node[label=0:{\(A_3\)}] at (1.9,2) {};
+                \node[label=0:{\(A_4\)}] at (3.1,2) {};
+                \node[label=0:{\(A_5\)}] at (2.8,1.2) {};
+            \end{tikzpicture}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\,A Partition of the Integers}{partint}
+        
+            Let \(S=\mathbb{Z}\). Find a partition for \(S\).
+            \\
+            \\
+            There are infinitely many answers, of which we provide one. Let 
+            \begin{equation*}
+                S_1=\{a\in\mathbb{Z}:a>0\},\quad S_2=\{0\},\quad \{a\in\mathbb{Z}:a<0\}.
+            \end{equation*}
+            Note that \(\mathbb{Z}=S_1\cup S_2\cup S_3\) and \(S_1\cap S_2=S_2\cap S_3=S_1\cap S_3=\emptyset\).
+        
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following diagram that corresponds with the equivalence relation \(R:\mathbb{Z}\to\mathbb{Z}\), where for \((a,b)\in\mathbb{Z}\),
+        \begin{equation*}
+        a\sim_Rb\iff|a|=|b|.
+        \end{equation*}
+        \begin{center}
+            \begin{tikzpicture}[
+                >=stealth,
+                bullet/.style={
+                  fill=black,
+                  circle,
+                  minimum width=1pt,
+                  inner sep=1pt
+                },
+                projection/.style={
+                  ->,
+                  thick,
+                  shorten <=2pt,
+                  shorten >=2pt
+                },
+                every fit/.style={
+                  ellipse,
+                  draw,
+                  inner sep=0pt
+                },
+                scale=0.6
+                ]
+                \node[bullet,label=above:\(\mathbb{Z}\)] (A) at (0,-1) {};
+                \node[bullet,label=135:\(\vdots\)] (A) at (0,-1) {};
+                \node[bullet,label=above:\(\mathbb{Z}\)] (B) at (4,-1) {};
+                \node[bullet,label=45:\(\vdots\)] (B) at (4,-1) {};
+                \node[bullet,label=below:\(\vdots\)] (aEND) at (0,-7) {};
+                \node[bullet,label=below:\(\vdots\)] (bEND) at (4,-7) {};
+                \foreach \y/\l in {1/-3,2/-2,3/-1,4/0,5/1,6/2,7/3}
+                  \node[bullet,label=left:$\l$] (a\y) at (0,-1*\y) {};
+            
+                \foreach \y/\l in {1/-3,2/-2,3/-1,4/0,5/1,6/2,7/3}
+                  \node[bullet,label=right:$\l$] (b\y) at (4,-1*\y) {};
+            
+                \node[draw,fit=(a1) (a2) (a3) (a4) (a5) (a6) (a7) (aEND), minimum width=2cm] {} ;
+                \node[draw,fit=(b1) (b2) (b3) (b4) (b5) (b6) (b7) (bEND), minimum width=2cm] {} ;
+            
+                \draw[projection] (a1) -- (b1);
+                \draw[projection] (a1) -- (b7);
+                \draw[projection] (a7) -- (b1);
+                \draw[projection] (a7) -- (b7);
+                \draw[projection] (a2) -- (b2);
+                \draw[projection] (a2) -- (b6);
+                \draw[projection] (a6) -- (b2);
+                \draw[projection] (a6) -- (b6);
+                \draw[projection] (a3) -- (b3);
+                \draw[projection] (a3) -- (b5);
+                \draw[projection] (a5) -- (b3);
+                \draw[projection] (a5) -- (b5);
+                \draw[projection] (a4) -- (b4);
+            \end{tikzpicture}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        Instead of tediously creating the above diagram, perhaps using TikZ, we may, instead, represent the relation as a partition of \(\mathbb{Z}\), where all subsets are comprised of elements of \(\mathbb{Z}\) related to each other. This idea brings us to our next definition.
+        \begin{definition}{\Stop\,\,Equivalence Classes}{equivcls}
+        
+            Suppose \(R\) is an equivalence relation on a set \(A\). For any element \(a\in A\), the equivalence class containing \(a\) is the subset \(\{x\in A:x\sim_Ra\}\) of \(A\) consisting of all the elements of \(A\) that relate to \(a\). This set is denoted as \({[}a{]}\) or \(A_a\). Therefore, the equivalence class containing \(a\) is the set
+            \begin{equation*}
+                {[}a{]}=\{x\in A:x\sim_Ra\}.
+            \end{equation*}
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Therefore, the parts of the partition described earlier are the equivalence classes of the equivalence relation. Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Equivalence Relations and Partitions}{equivrelpart}
+        
+            Every equivalence relation induces a partition, and every partition induces an equivalence relation, where two elements \(x\) and \(y\) are related if and only if \(x\) and \(y\) are found in the same part of the partition.
+            
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Conmeasurable Numbers}{comensnum}
+        
+            Given the equivalence relation \(R:\mathbb{R}-\{0\}\) defined by
+            \begin{equation*}
+                a\sim_Rb\iff\frac{a}{b}\in\mathbb{Q} 
+            \end{equation*}
+            for \((a,b)\in\mathbb{R}\). The relation \(R\) is reflexive, as for all \(a\in R\), \(\frac{a}{a}=1\in\mathbb{Q}\). Similarly, \(R\) is symmetric, as
+            \begin{equation*}
+                \frac{a}{b}\in\mathbb{Q}\implies\frac{b}{a}\in Q.
+            \end{equation*}
+            Finally, \(R\) is transitive, because
+            \begin{equation*}
+                \frac{a}{b}\in\mathbb{Q}\wedge\frac{b}{c}\in\mathbb{Q}\implies\frac{a}{c}\in\mathbb{Q}
+            \end{equation*}
+            This is because \(\frac{a}{b}\cdot\frac{b}{c}=\frac{a}{c}\). We may then build a partition on \(\mathbb{R}-\{0\}\).
+            \\
+            \\
+            We will closely examine the equivalence classes for two elements of \(\mathbb{R}-\{0\}\). We see that \({[}\pi{]}=\{k\pi:k\in\mathbb{Q}\}\) and \({[}1{]}=\mathbb{Q}\).
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Equivalence Classes 1}{equivcls1}
+        
+            Refer to the equivalence relation scrutinized in Exercise \ref{exe:proprel1}. Describe the equivalence classes.
+            \\
+            \\
+            After testing various points in a graphing utility, such as \((1,0)\), \((1,1)\), and \((1,2)\), we come to the conclusion that the equivalence class containing the ordered pair \((x,y)\) is the set of all points on the circle, centered at the origin, with radius \(\sqrt{x^2+y^2}\).
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Equivalence Classes 2}{equivcls2}
+        
+            Refer to the equivalence relation scrutinized in Exercise \ref{exe:proprel2}. Describe the equivalence classes.
+            \\
+            \\
+            The equivalence class containing a function \(f(x)\) will be
+            \begin{equation*}
+                {[}f(x){]}=\{f(x)+C\},\quad C\in\mathbb{R}.
+            \end{equation*}
+            
+        \end{exercise}
+    \pagebreak
+    
+\section{Lecture 8: June 23, 2022}
+
+    \subsection{Functions}
+    
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Functions}{functions}
+            
+            A relation \(R:A\to B\) is a function if and only if
+            \begin{equation*}
+                \forall a\in A,\exists!b\in B,a\sim_Rb.
+            \end{equation*}
+            That is,
+            \begin{equation*}
+                \forall a\in A,\exists b\in B,(a\sim_Rb\wedge\forall c\in B,a\sim_Rc)\implies b=c.
+            \end{equation*}
+        
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the function \(F:A\to B\). We call \(A\) the domain of \(F\), and \(B\) is called the codomain. All elements of the codomain may not be used. Instead, we form a new construction, called the range. The range of \(F\) is
+        \begin{equation*}
+            \range F = \{b\in B:\exists a\in A, F(a)=b\}.
+        \end{equation*}
+        There are many notations to describe the way a function maps a given input to an output, one of which we just used. Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Function Analysis}{functanal}
+        
+            Define \(R:\mathbb{N}\to\mathbb{N}\) where for \((a,b)\in\mathbb{N}\), \(a\sim_Rb\iff b=a^2\). Determine if \(R\) is a function. State the domain, codomain, and range of \(R\).
+            \\
+            \\
+            Consider the following diagram.
+            \begin{center}
+                \begin{tikzpicture}[
+                    >=stealth,
+                    bullet/.style={
+                      fill=black,
+                      circle,
+                      minimum width=1pt,
+                      inner sep=1pt
+                    },
+                    projection/.style={
+                      ->,
+                      thick,
+                      shorten <=2pt,
+                      shorten >=2pt
+                    },
+                    every fit/.style={
+                      ellipse,
+                      draw,
+                      inner sep=0pt
+                    },
+                    scale=0.8
+                    ]
+                    \node[bullet,label=above:\(\mathbb{N}\)] (A) at (0,-1) {};
+                    \node[bullet,label=above:\(\mathbb{N}\)] (B) at (4,-1) {};
+                    \node[bullet,label=below:\(\vdots\)] (aEND) at (0,-5) {};
+                    \node[bullet,label=below:\(\vdots\)] (bEND) at (4,-5) {};
+                    \foreach \y/\l in {1/0,2/1,3/2,4/3,5/4}
+                      \node[bullet,label=left:$\l$] (a\y) at (0,-1*\y) {};
+                
+                    \foreach \y/\l in {1/0,2/1,3/4,4/9,5/16}
+                      \node[bullet,label=right:$\l$] (b\y) at (4,-1*\y) {};
+                
+                    \node[draw,fit=(a1) (a2) (a3) (a4) (a5) (aEND), minimum width=2cm] {} ;
+                    \node[draw,fit=(b1) (b2) (b3) (b4) (b5) (bEND), minimum width=2cm] {} ;
+                
+                    \draw[projection] (a1) -- (b1);
+                    \draw[projection] (a2) -- (b2);
+                    \draw[projection] (a3) -- (b3);
+                    \draw[projection] (a4) -- (b4);
+                    \draw[projection] (a5) -- (b5);
+                \end{tikzpicture}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            We recognize that \(R\) is a function, as each output only has one input. Notice that if \(R\) were a relation on \(\mathbb{Z}\), this would not be true. Furthermore, the domain and codomain of \(R\) is \(\mathbb{N}\). The range of \(R\) is the set of all perfect squares.
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        There are three major classifications of functions. Consider the following definitions.
+        \begin{definition}{\Stop\,\,Injective Functions}{injectivefunctions}
+        
+            Given a function \(F:A\to B\), \(F\) is injective, or one-to-one, if and only if
+            \begin{equation*}
+                \forall (a_1,a_2)\in A,a_1\neq a_2\implies F(a_1)\neq F(a_2).
+            \end{equation*}
+            That is, \(F\) is injective if and only if
+            \begin{equation*}
+                \forall (a_1,a_2)\in A, F(a_1)=F(a_2)\implies a_1=a_2.
+            \end{equation*}
+            
+        \end{definition}
+        \begin{definition}{\Stop\,\,Surjective Functions}{surjectivefunctions}
+        
+            Given a function \(F:A\to B\), \(F\) is surjective, or onto, if and only if
+            \begin{equation*}
+                \range F = B.
+            \end{equation*}
+            That is, \(F\) is surjective if and only if
+            \begin{equation*}
+                \forall b\in B, \exists a\in A,F(a)=b.
+            \end{equation*}
+            
+        \end{definition}
+        \begin{definition}{\Stop\,\,Bijective Functions}{bijectivefunctions}
+        
+            Given a function \(F:A\to B\), \(F\) is bijective, if and only if \(F\) is both injective and surjective. That is, \(F\) is bijective if and only if
+            \begin{equation*}
+                (\forall (a_1,a_2)\in A, F(a_1)=F(a_2)\implies a_1=a_2) \wedge (\forall b\in B, \exists a\in A,F(a)=b).
+            \end{equation*}
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,The Arctangent: Part I}{arctan1}
+        
+            Consider \(F:\mathbb{R}^2\to\mathbb{R}^2\) given by \(F(x)=\arctan x\). Determine if \(F\) is injective, surjective, or bijective.
+            \begin{itemize}
+                \item Injective: \(F\) is injective.
+                \begin{itemize}
+                    \item Suppose \(\arctan(a_1)=\arctan(a_2)\). If we take the tangent of both sides, we see that \(a_1=a_2\).
+                    \item Alternatively, if \(a_1\neq a_2\), we observe that \(\arctan(a_1)\neq\arctan(a_2)\) because \(\arctan x\) is monotonically increasing.
+                \end{itemize}
+                \item Surjective: \(F\) is not surjective.
+                \begin{itemize}
+                    \item We see that \(\range F=\left\{x:-\frac{\pi}{2}<x<\frac{\pi}{2}\right\}\).
+                \end{itemize}
+                \item Bijective: \(F\) is not bijective.
+            \end{itemize}
+        
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{example}{\Difficulty\,\Difficulty\,\,The Arctangent: Part II}{arctan2}
+        
+            Consider \(F:\mathbb{R}^2\to\left(-\frac{\pi}{2},\frac{\pi}{2}\right)\) given by \(F(x)=\arctan x\). Determine if \(F\) is injective, surjective, or bijective.
+            \begin{itemize}
+                \item Injective: \(F\) is injective.
+                \item Surjective: \(F\) is surjective.
+                \item Bijective: \(F\) is bijective.
+            \end{itemize}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following definition.
+        \begin{definition}{\Stop\,\,Inverse Functions}{invfunc}
+        
+            Given a function \(F:A\to B\), the inverse of \(F\), \(F^{-1}:B\to A\), is defined by
+            \begin{equation*}
+                F^{-1}(b)=a\iff F(a)=b
+            \end{equation*}
+            for \(a\in A\) and \(b\in B\). The inverse of \(F\), \(F^{-1}\), is a function if and only if \(F\) is a bijection.
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        We will define an inverse relation in a similar manner to how we defined inverse functions in Definition \ref{def:invfunc}.
+        \begin{definition}{\Stop\,\,Inverse Relations}{invrel}
+            
+            If \(R:A\to B\) is a relation, the inverse relation \(R^{-1}:B\to A\) is defined by 
+            \begin{equation*}
+                R^{-1}=\{(b,a):(a,b)\in R\}.
+            \end{equation*}
+            That is,
+            \begin{equation*}
+                b\sim_{R^{-1}}a\iff a\sim_Rb.
+            \end{equation*}
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        To alter a function to make it a bijection, we may restrict the domain to make it injective, and we may restrict the codomain to make it surjective.
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Compositions}{compfunc}
+        
+            Let \(A\), \(B\), and \(C\) be sets and \(F:A\to B\) and \(G:B\to C\) be functions.
+            
+            \begin{itemize}
+                \item If \(F\) and \(G\) are both injective, is \(G\circ F\) necessarily injective?
+                \begin{itemize}
+                    \item Yes. Each \(b\in B\) ``provided'' to \(G\) will be different and therefore each \(c\in C\) that \(G\) generates will be different.
+                \end{itemize}
+                \item If \(F\) and \(G\) are both surjective, is \(G\circ F\) necessarily surjective?
+                \begin{itemize}
+                    \item Yes. All \(b\in B\) will be generated by \(F\) and therefore will be used by \(G\) to generate all \(c\in C\).
+                \end{itemize}
+                \item If \(F\) and \(G\) are both bijective, is \(G\circ F\) necessarily bijective?
+                \begin{itemize}
+                    \item Yes. See the above justifications.
+                \end{itemize}
+            \end{itemize}
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        We now introduce a theorem explaining what it means for two sets to have the same size.
+        \begin{theorem}{\Stop\,\,Equal Cardinalities of Two Sets}{eqsizeset}
+        
+            For two sets \(A\) and \(B\), \(|A|=|B|\) if and only if there exists a bijection \(F:A\to B\).
+        
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Theorem \ref{thm:eqsizeset} allows us to both consider sets of both finite and infinite cardinality. We examine the latter case.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Natural Numbers and Positive Natural Numbers}{natnum}
+        
+            Prove that \(|\mathbb{N}|=|\mathbb{N}^+|\).
+            \begin{proof}
+                Let \(F:\mathbb{N}\to\mathbb{N}^+\) be defined by \(F(n)=n+1\). We see that \(F\) is a bijection between the two sets.
+            \end{proof}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Example \ref{exa:natnum} provides a very interesting result. For finite sets \(A\) and \(B\), 
+        \begin{equation*}
+            A\subset B \implies |A|\neq|B|.
+        \end{equation*}
+        For infinite sets, the above equality is not necessarily true. Here, we will also define the notion of countable sets.
+        \begin{definition}{\Stop\,\,Countable Sets}{countsets}
+            
+            An infinite set \(A\) is countable if and only if \(|A|=|\mathbb{N}|\).
+            
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\,Natural Numbers and Integers}{natint}
+        
+            Prove that \(|\mathbb{N}|=|\mathbb{Z}|\).
+            \begin{proof}
+                We wish to essentially map half of the natural numbers to the positive integers and the other half to the negative integers. Here, we map the positive integers to the even natural numbers and the negative integers to the odd natural numbers. Let \(F:\mathbb{Z}\to\mathbb{N}\) be defined by 
+                \begin{equation*}
+                    F(n)=\begin{cases} 2n & n\geq 0 \\ -2n-1 & n<0\end{cases}.
+                \end{equation*}
+                We see that \(F\) is a bijection between te two sets.
+            \end{proof}
+        
+        \end{exercise}
+        \vphantom
+        \\
+        \\
+        We will now provide a few nontrivial examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Natural Numbers and Rational Numbers}{natrat}
+        
+            Prove that \(|\mathbb{N}|=|\mathbb{Q}|\).
+            \begin{proof}
+                We wish to write \(\mathbb{Q}\) in bijection with \(\mathbb{N}\). We will start at \((0,0)\) and visit all points of \(\mathbb{Z}\times\mathbb{Z}\) in an outward counterclockwise spiral. At each point \((a,b)\), calculate the slope to the origin, namely \(\frac{b}{a}\). If the slope is undefined or already used, discard it. Otherwise, fill in the following table accordingly.
+                \begin{center}
+                    \begin{tabular}{ccccccccc}
+                        \hline
+                        \(\mathbb{N}\) & \(0\) & \(1\) & \(2\) & \(3\) & \(4\) & \(5\) & 6 & \(\cdots\) \\
+                        \hline
+                        \(\mathbb{Q}\) & \(0\) & \(1\) & \(-1\) & \(-\frac{1}{2}\) & \(\frac{1}{2}\) & \(2\) & \(-2\) & \(\cdots\) \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                This method will generate all rational numbers once and only once an is a bijective map from \(\mathbb{N}\) to \(\mathbb{Q}\).
+            \end{proof}
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\Difficulty\,\Difficulty\,\,Natural Numbers and Real Numbers}{natrea}
+        
+            Prove that \(|\mathbb{N}|\neq|\mathbb{R}|\).
+            \begin{proof}
+                To prove that there does not exist a bijection between \(\mathbb{N}\) and \(\mathbb{R}\), implying that \(\mathbb{R}\) is uncountable, we must show that for all functions \(F:\mathbb{N}\to\mathbb{R}\), \(F\) is not bijective. That is, for all \(F\), \(F\) is not injective, or \(F\) is not surjective. We will show that all functions \(F\) are not surjective. We do so by Georg Cantor's Diagonal Argument.
+                \\
+                \\
+                Let \(F:\mathbb{N}\to\mathbb{R}\) be a function given by the following table. We list the decimal expansions of all outputs, in order.
+                \begin{center}
+                    \begin{tabular}{c|cc}
+                        \hline
+                        \(\mathbb{N}\) & \(\mathbb{R}\) \\
+                        \hline
+                        \(n\) & \(F(n)\) \\
+                        \hline
+                        \(0\) & \(b_0.\boxed{a_{00}}a_{01}a_{02}a_{03}a_{04}a_{05}\) & \(\cdots\) \\
+                        \(1\) & \(b_1.a_{10}\boxed{a_{11}}a_{12}a_{13}a_{14}a_{15}\) & \(\cdots\) \\
+                        \(2\) & \(b_2.a_{20}a_{21}\boxed{a_{22}}a_{23}a_{24}a_{25}\) & \(\cdots\) \\
+                        \(3\) & \(b_3.a_{30}a_{31}a_{32}\boxed{a_{33}}a_{34}a_{35}\) & \(\cdots\) \\
+                        \(4\) & \(b_4.a_{40}a_{41}a_{42}a_{43}\boxed{a_{44}}a_{45}\) & \(\cdots\) \\
+                        \(5\) & \(b_5.a_{50}a_{51}a_{52}a_{53}a_{54}\boxed{a_{55}}\) & \(\cdots\) \\
+                        \(\vdots\) & \(\vdots\) & \(\ddots\) \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                \vphantom
+                \\
+                \\
+                Here, \(b_n\) is the integer part of \(F(n)\) and \(a_{ij}\) is the \(j\)th digit past the decimal in the number \(f(i)\). We wish to show that there exists some real number \(m\) not in the range of \(F\). We construct 
+                \begin{equation*}
+                    m=0.m_0m_1m_2m_3m_4m_5\ldots
+                \end{equation*}
+                where
+                \begin{equation*}
+                    m_0=\begin{cases} 4 & a_{00}\neq 4 \\ 7 & a_{00}=4 \end{cases}, \quad m_1=\begin{cases} 4 & a_{11}\neq 4 \\ 7 & a_{11}=4 \end{cases},\ldots, m_n=\begin{cases} 4 & a_{nn}\neq 4 \\ 7 & a_{nn}=4 \end{cases}.
+                \end{equation*}
+                By this construction, \(m\) will differ from \(F(n)\) in at least digit \(n\) past the decimal point. Therefore, \(\forall n\in\mathbb{N}, m\neq F(n)\). Therefore \(m\) is not present in the range of \(F(n)\) and \(F(n)\) is therefore not surjective. Therefore, there does not exist a bijection between \(\mathbb{N}\) and \(\mathbb{R}\); therefore, \(\mathbb{R}\) is uncountable.
+            \end{proof}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We will now pose Cantor's Continuum Hypothesis. That is, for set \(B\),
+        \begin{equation*}
+            \exists B, |\mathbb{N}|<|B|<|\mathbb{R}|?
+        \end{equation*}
+        The answer is undecidable.
+        \\
+        \\
+        Now, we pose two applications of Example \ref{exa:natrat} and the Continuum Hypothesis to computer science. It is impossible to represent all real numbers in binary; any particular string of zeroes and ones is countable. Also, the halting problem is another famous example of an undecidable problem.
+        
+    \pagebreak
+
+    \section{Lecture 9: June 30, 2022}
+    
+    \subsection{The Pigeonhole Principle}
+    
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,The Pigeonhole Principle}{pigeonhole}
+        
+            Let \(F:A\to B\) be a function with finite sets \(A\) and \(B\). If \(|A|>|B|\), \(F\) is not injective.
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        The above result gets its name from the conceptual problem of a function that maps pigeons to holes. If there are more pigeons than holes, there exists a hole with more than one pigeon. To visualize this, consider the following diagrams.
+        \begin{center}
+            \begin{tikzpicture}[
+                >=stealth,
+                bullet/.style={
+                  fill=black,
+                  circle,
+                  minimum width=1pt,
+                  inner sep=1pt
+                },
+                projection/.style={
+                  ->,
+                  thick,
+                  shorten <=2pt,
+                  shorten >=2pt
+                },
+                every fit/.style={
+                  ellipse,
+                  draw,
+                  inner sep=0pt
+                },
+                scale=0.7
+                ]
+                \node[bullet,label=above:\(A\)] (A) at (0,-1) {};
+                \node[bullet,label=above:\(B\)] (B) at (4,-1) {};
+                \foreach \y/\l in {1/,2/,3/,4/,5/}
+                  \node[bullet,label=left:$\l$] (a\y) at (0,-1*\y) {};
+            
+                \foreach \y/\l in {1/,2/,3/,4/}
+                  \node[bullet,label=right:$\l$] (b\y) at (4,-1*\y) {};
+                 \node[] (b5) at (4,-1*5) {};
+            
+                \node[draw,fit=(a1) (a2) (a3) (a4) (a5), minimum width=1.5cm] {} ;
+                \node[draw,fit=(b1) (b2) (b3) (b4) (b5), minimum width=1.5cm] {} ;
+            
+                \draw[projection] (a1) -- (b1);
+                \draw[projection] (a2) -- (b2);
+                \draw[projection] (a3) -- (b3);
+                \draw[projection] (a4) -- (b4);
+                \draw[projection] (a5) -- (b4);
+                
+                \node[bullet,label=above:\(A\)] (A) at (8,-1) {};
+                \node[bullet,label=above:\(B\)] (B) at (12,-1) {};
+                \foreach \y/\l in {1/,2/,3/,4/}
+                  \node[bullet,label=left:$\l$] (c\y) at (8,-1*\y) {};
+                 \node[] (c5) at (8,-1*5) {};
+            
+                \foreach \y/\l in {1/,2/,3/,4/,5/}
+                  \node[bullet,label=right:$\l$] (d\y) at (12,-1*\y) {};
+            
+                \node[draw,fit=(c1) (c2) (c3) (c4) (c5), minimum width=1.5cm] {} ;
+                \node[draw,fit=(d1) (d2) (d3) (d4) (d5), minimum width=1.5cm] {} ;
+            
+                \draw[projection] (c1) -- (d1);
+                \draw[projection] (c2) -- (d2);
+                \draw[projection] (c3) -- (d3);
+                \draw[projection] (c4) -- (d4);
+               
+            \end{tikzpicture}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        While the Pigeonhole Principle may seem trivial, it may be used to construct various proofs. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Pairs of Integers}{pairofints}
+        
+            Prove that among any three distinct integers, there exists a pair whose difference is even.
+            \begin{proof}
+                Let \((p,q,r)\in\mathbb{Z}\). Let \(A\) be the set defined by
+                \begin{equation*}
+                    A=\{p,q,r\}.
+                \end{equation*}
+                We note that \(|A|=3\). Let \(B\) be the set defined by \(\{\text{EVEN},\text{ODD}\}\), with \(|B|=2\). Let \(F:A\to B\) where \(a\in A\).
+                \begin{equation*}
+                    F(a)=\begin{cases} \text{EVEN} & a\bmod 2 = 0 \\ \text{ODD} & a\bmod 2 \neq 0 \end{cases}.
+                \end{equation*}
+                As \(|A|>|B|\), \(F\) is non-injective. Therefore, there must either exist two odd integers and an even integer, or two even integers and an odd integer. In the first case, the pair whose difference is even is the pair of integers that are odd. In the second case, the corresponding pair is the pair of numbers that are even.
+            \end{proof}
+        
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\Difficulty\,\,1978 Putnam}{1978putnam}
+        
+            Prove that any \(20\) distinct integers chosen from the set \(S=\{1,4,7,10,\ldots,100\}\) will contain a pair that sums to \(104\).
+            \\
+            \\
+            Before delving into the proof itself, we will proceed with some informal experimentation. Consider the following pairs \(S\) that sum to \(104\).
+            \begin{align*}
+                104&=\underbrace{4}_{1+1(3)}+100 \\
+                &=\underbrace{7}_{1+2(3)}+97 \\
+                &=\underbrace{10}_{1+3(3)}+94 \\
+                &=\underbrace{13}_{1+4(3)}+91 \\
+                &\qquad\qquad\vdots \\
+                &=\underbrace{49}_{1+16(3)}+55.
+            \end{align*}
+            Note that there are \(16\) pairs of numbers that add to \(104\). Also, \(1\) and \(52\) are not able to be used in a pair that sums to \(104\). Therefore, any choice of \(20\) distinct integers from \(S\) will contain at least \(18\) distinct integers selected from \(S-\{1,52\}\). We are now ready to begin our proof.
+            \begin{proof}
+                Let \(A\) be \(18\) distinct integers chosen from \(S-\{1,52\}\). Let \(B\) be the set of pairs of integers that sum to \(104\). That is,
+                \begin{align*}
+                    B&=\{\{4,100\},\{7,97\},\{10,94\},\ldots,\{49,55\}\} \\
+                    &=\{\{1+3n, 103-3n\}:n\in\{1,2,3,\ldots,16\}\}.
+                \end{align*}
+                Note that \(|A|=18\) and \(|B|=16\). Let \(F:A\to B\) be given by 
+                \begin{equation*}
+                    F(a)=\{a,104-a\}.
+                \end{equation*}
+                for \(a\in A\). The function \(F\) is non-injective by the Pigeonhole Principle, so there are two distinct elements of \(A\) that are mapped to the same element of \(B\). These two elements are the pair that will sum to \(104\).
+            \end{proof}
+        
+        \end{example}
+        \vphantom
+        \\
+        \\
+        There are three parts to every Pigeonhole argument.
+        \begin{enumerate}
+            \item Define \(A\), the set of pigeons.
+            \item Define \(B\), the set of pigeonholes, such that \(A>B\).
+            \item Define \(F:A\to B\), the method of assigning pigeons to pigeonholes.
+        \end{enumerate}
+        \vphantom
+        \\
+        \\
+        We may then conclude that
+        \begin{equation*}
+            \exists (a_1,a_2)\in A,a_1\neq a_2\wedge F(a_1)=F(a_2).
+        \end{equation*}
+        \vphantom
+        \pagebreak
+        \\
+        \\
+        Consider the following exercises.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Hairs}{hairs}
+        
+            Prove that two people from the state of Colorado have the same number of hairs on their head.
+            \begin{proof}
+                The state of Colorado, at the time of writing, has roughly \(5.8\times10^6\) people, and it is safe to assume that the number of human hairs is less than \(5\times10^5\). Let \(A\) be the set of people in Colorado, with \(|A|=5.8\times10^6\) and let \(B\) be the set of all integers from \(0\) to \(5\times10^5\), inclusive, noninclusive. We note that \(|B|=5\times10^5\). Let the function \(F:A\to B\) be the function that maps a given person to the number of hairs on their head. We see that \(F\) is non-injective, therefore, at least two people from the state of Colorado must have the same number of hairs on their head.
+            \end{proof}
+        
+        \end{exercise}
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Sphere}{sphere}
+        
+            Prove that given \(5\) points on the surface of a sphere, there exists a hemisphere containing at least four of them. Any point on the boundary between the hemispheres is simultaneously in both hemispheres.
+            \begin{proof}
+                Pick two points, and cut the sphere in half such that the two points lie on the cut. Let \(A\) be the set of the three remaining points, and let \(B\) be the set of the two pieces of the sphere--the hemispheres. Let \(F:A\to B\) map the points to their corresponding hemisphere. As \(|A|=3\) and \(|B|=2\), we see that \(F\) is non-injective, meaning that at least two remaining points will fall on the same hemisphere. These two points add to the two points that lie on the cut, giving four points in the hemisphere.
+            \end{proof}
+        
+        \end{exercise}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        The Extended Pigeonhole Principle is, well, an extended form of the Pigeonhole Principle. Consider the following statement.
+        \begin{theorem}{\Stop\,\,The Extended Pigeonhole Principle}{extpigeonhole}
+        
+            If \(n\) ``pigeons'' land into \(k\) ``pigeonholes,'' there exists at least one pigeonhole with at least \(\floor{\frac{n-1}{k}}=\ceil{\frac{n}{k}}\) pigeons.
+        
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        We may use Theorem \ref{thm:extpigeonhole} to better quantify the ``population'' of the holes. Consider the following exercise.
+        \begin{exercise}{\Difficulty\,\Difficulty\,\Difficulty\,\,Equilateral Triangle}{equtri}
+        
+            Prove that given \(9\) points in an equilateral triangle with unit sides, there exist \(3\) that define a triangle of area less than or equal to \(\frac{\sqrt{3}}{8}\).
+            \begin{proof}
+                Let \(A\) be the set of the nine points in the triangle. Let \(B\) be the set of four equilateral triangles given by the first iteration of Sierpinski's Triangle. Let \(F:A\to B\) map each point to the triangle that contains the point. There must exist a triangle containing \(\ceil{\frac{9}{4}}=3\) points. The four equilateral triangles have area \(\frac{\sqrt{3}}{4\cdot2}\), and the triangle formed by the three points is therefore less than or equal to \(\frac{\sqrt{3}}{4\cdot2}\).
+            \end{proof}
+        
+        \end{exercise}
+
