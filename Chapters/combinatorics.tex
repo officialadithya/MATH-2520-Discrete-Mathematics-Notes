@@ -461,7 +461,7 @@
             \\
             We must first count the number of possible hands. A standard deck of cards has \(52\) cards, and we must select \(5\) to form a hand. Order does not matter and repeats are not allowed, so we have \(\binom{52}{5}\) hands. To count the number of possible full houses, we must first pick the \(2\) denominations from a set of \(13\). Again, order does not matter and repeats are not allowed, so we have \(\binom{13}{12}\). Out of those two denominations, we must pick one that has three cards and the other that has two card, giving us \(\binom{2}{1}\). There are also four suits for the first denomination that has three cards and four suits for the second denomination that has two cards. This gives us \(\binom{4}{3}\) and \(\binom{4}{2}\). To find the probability, we evaluate
             \begin{equation*}
-                \frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\approx0.00144.
+                \frac{\binom{13}{2}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\approx0.00144.
             \end{equation*}
         
         \end{example}
@@ -472,8 +472,8 @@
             \\
             \begin{align*}
                 \sum_{n=0}^\infty nP(X=n)&=(5000-10)P(\text{WIN})+(-10)P(\text{LOSE}) \\
-                &=4990\left(\frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right)-10\left(1-\frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right) \\
-                &=2.8
+                &=4990\left(\frac{\binom{13}{2}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right)-10\left(1-\frac{\binom{13}{12}\binom{2}{1}\binom{4}{3}\binom{4}{2}}{\binom{52}{5}}\right) \\
+                &\approx-2.8
             \end{align*}
             This means that if this game were to be set up in a casino, the casino would make approximately \(\$3\) per player considering both wins and losses.
         
